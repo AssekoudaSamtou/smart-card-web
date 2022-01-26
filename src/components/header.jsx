@@ -4,7 +4,7 @@ import { jsx } from 'theme-ui'
 import Link from 'next/link'
 
 const Header = () => (
-	<header sx={{bg: '#FFF', borderColor: 'primary', display: 'flex', alignItems: 'center',  justifyContent: 'space-between', padding: '30px', borderBottom: '1px solid #EDF2F7'}}>
+	<header sx={{bg: '#FFF', position: 'fixed', width: 'calc(100vw - 250px)', borderColor: 'primary', display: 'flex', alignItems: 'center',  justifyContent: 'space-between', padding: '30px', borderBottom: '1px solid #EDF2F7'}}>
 		<a sx={{fontWeight: 'bold', fontSize: '28px', color: '#27272E'}}>Dashboard</a>
 		
 		<nav sx={{display: 'flex', alignItems: 'center',  justifyContent: 'space-between', height: '100%'}}>

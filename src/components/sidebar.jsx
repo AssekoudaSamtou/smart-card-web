@@ -46,7 +46,7 @@ const Badge = ({text, background, color}) => (
 )
 
 const Sidebar = () => (
-	<div sx={{width: '250px', border: '1px solid #EDF2F7', display: 'flex', flexDirection: 'column'}}>
+	<div sx={{width: '250px', border: '1px solid #EDF2F7', display: 'flex', flexDirection: 'column', bg: '#FFFFFF', position: 'fixed', height: '100vh'}}>
 		<div sx={{display: 'flex', alignItems: 'center', margin: '30px 0 0 24px'}}>
 			<Image src={logo}/>
 			<span sx={{background: 'linear-gradient(225deg, #D665FF 0%, #4C6FFF 100%)',
@@ -57,7 +57,7 @@ const Sidebar = () => (
 		<div sx={{margin: '4rem 0 0 0', flexBasis: '73%'}}>
 			<NavItem text={"Messages"} icon={ChatIcon} badge={6} />
 			<NavItem text={"Messages"} icon={ChatIcon} badge={6} active/>
-			<NavItem text={"Messages"} icon={ChatIcon} badge={6} /> 
+			<NavItem text={"Messages"} icon={ChatIcon} badge={6} />
 		</div>
 		
 		<div>

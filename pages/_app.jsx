@@ -18,11 +18,13 @@ export default function App({ Component, pageProps }) {
 				[Login].includes(Component) ? (
 					<Component {...pageProps} />
 				) : (
-					<div sx={{display: 'flex'}}>
+					<div sx={{display: 'flex', bg: '#F7FAFC'}}>
 						<Sidebar/>
-						<div sx={{flexGrow: '1'}}>
+						<div sx={{flexGrow: '1', paddingLeft: '250px'}}>
 							<Header />
-							<Component {...pageProps} />
+							<div sx={{paddingTop: '103px'}}>
+								<Component {...pageProps} />
+							</div>
 						</div>
 					</div>
 				)
