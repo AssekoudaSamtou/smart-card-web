@@ -25,7 +25,7 @@ export default () => {
 			{/*<div sx={{variant: 'containers.page', display: 'flex', alignItems: 'center', height: '100%'}}>
 			<h1 sx={{fontSize: 8, my: 0}}>This is a really dope note taking app.</h1>
 		</div>*/}
-			<div sx={{borderRadius: '16px', margin: '30px', bg: '#FFFFFF'}}>
+			<div sx={{borderRadius: '16px', margin: '30px', bg: '#FFFFFF', boxShadow: '0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06)'}}>
 				<div sx={{
 					fontWeight: '600',
 					fontSize: '14px',
@@ -48,7 +48,7 @@ export default () => {
 					</thead>
 					<tbody>
 					{
-						Array(8).fill(1).map((item, i) => (
+						Array(6).fill(1).map((item, i) => (
 							<tr key={i} sx={{
 								fontSize: '14px',
 								lineHeight: '20px',
@@ -56,7 +56,7 @@ export default () => {
 								boxShadow: 'inset 0px -1px 0px #EDF2F7'
 							}}>
 								<td sx={{...td, display: 'flex'}}>
-									<Image src={Avatar} sx={{borderRadius: '100%'}} width={24} height={24}/>
+									<Image src={Avatar} sx={{borderRadius: '100%', zIndex: '-1'}} width={24} height={24}/>
 									<span sx={{
 										fontWeight: '600',
 										fontSize: '12px',
@@ -72,7 +72,11 @@ export default () => {
 								<td sx={td}><span>$3,500</span></td>
 								<td sx={td}><span>Scheduled</span></td>
 								<td sx={td}>
-									<button sx={{variant: 'buttons.light', padding: '8px 12px'}}>
+									<button sx={{variant: 'buttons.light', padding: '8px 12px', fontWeight: '600',
+										fontSize: '10px',
+										lineHeight: '10px',
+										letterSpacing: '-0.005em',
+										color: '#16192C'}}>
 										Download
 									</button>
 								</td>
