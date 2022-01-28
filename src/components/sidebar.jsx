@@ -7,8 +7,11 @@ import logo from './dark.png'
 import React from "react"
 import theme from '../../theme'
 
-const NavItem = ({text, active, icon, badge}) => (
-	<div sx={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center', color: active ? 'primary' : '#425466', padding: '17px 22px 17px 0', cursor: 'pointer'}}>
+const NavItem = ({text, active, icon, badge, href}) => {
+	const textStyle = {fontSize: '14px', flexBasis: '50%', marginRight: '10px', fontWeight: '600', color: 'inherit'}
+	
+	return (
+		<div sx={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center', color: active ? 'primary' : '#425466', padding: '17px 22px 17px 0', cursor: 'pointer'}}>
 		<span sx={{
 			width: '2px',
 			height: '24px',
@@ -16,11 +19,19 @@ const NavItem = ({text, active, icon, badge}) => (
 			marginRight: '22px',
 			visibility: active ? 'visible' : 'hidden'
 		}}/>
-		{ React.createElement(icon, {fill: active ? theme.colors.primary : '#425466'}) }
-		<span sx={{fontSize: '14px', flexBasis: '50%', marginRight: '10px', fontWeight: '600'}}>{ text }</span>
-		{ badge && (<Badge text={badge} background={'#E1E8FF'}/>) }
-	</div>
-)
+			{ React.createElement(icon, {fill: active ? theme.colors.primary : '#425466'}) }
+			{ href ? (
+				<Link href={href}>
+					<a sx={textStyle}>{ text }</a>
+				</Link>
+			) : (
+				<span sx={textStyle}>{ text }</span>
+			) }
+			
+			{ badge && (<Badge text={badge} background={'#E1E8FF'}/>) }
+		</div>
+	)
+}
 
 const ChatIcon = ({fill}) => (
 	<svg sx={{marginRight: '20px'}} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -55,9 +66,9 @@ const Sidebar = () => (
 		</div>
 		
 		<div sx={{margin: '4rem 0 0 0', flexBasis: '73%'}}>
-			<NavItem text={"Messages"} icon={ChatIcon} badge={6} />
-			<NavItem text={"Messages"} icon={ChatIcon} badge={6} active/>
-			<NavItem text={"Messages"} icon={ChatIcon} badge={6} />
+			<NavItem text={"List"} icon={ChatIcon} badge={6} href="/table"/>
+			<NavItem text={"Login"} icon={ChatIcon} badge={6} active href="/auth/login"/>
+			<NavItem text={"Messages"} icon={ChatIcon} badge={6} href="/"/>
 		</div>
 		
 		<div>
