@@ -53,7 +53,7 @@ export default () => {
 								boxShadow: 'inset 0px -1px 0px #EDF2F7'
 							}}>
 								<td sx={{...td, display: 'flex'}}>
-									<Image src={Avatar} sx={{borderRadius: '100%', zIndex: '-1'}} width={24} height={24}/>
+									<Image src={Avatar} sx={{borderRadius: '100%'}} width={24} height={24}/>
 									<span sx={{
 										fontWeight: '600',
 										fontSize: '12px',
