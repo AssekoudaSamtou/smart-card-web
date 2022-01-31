@@ -2,75 +2,31 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import Link from 'next/link'
+import TextInput from "../../src/components/textInput";
 
 export default () => (
 	<div sx={{display: 'flex', alignItems: 'stretch', height: '100vh'}}>
 		<section sx={{flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', bg: '#F7FAFC'}}>
-			<div sx={{width: '60%'}}>
-				<span>👋</span>
-				<div sx={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start'}}>
+			<div sx={{width: '30%'}}>
+				<div sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
 					<span sx={{
 						fontWeight: '600',
 						fontSize: '28px',
 						lineHeight: '136.02%',
 						color: '#27272E'
-					}}>Welcome back!</span>
+					}}>Create your account</span>
 					<span sx={{
 						fontSize: '16px',
 						lineHeight: '162.02%',
 						fontFeatureSettings: '\'salt\' on',
 						color: '#27272E'
-					}}>Let's build something great</span>
+					}}>It’s free and easy</span>
 				</div>
 				
 				<form sx={{margin: '54px 0 0 0'}}>
-					<div sx={{display: 'flex', flexDirection: 'column'}}>
-						<label htmlFor="phone" sx={{
-							fontWeight: '500',
-							fontSize: '14px',
-							lineHeight: '17px',
-							display: 'flex',
-							alignItems: 'center',
-							color: '#425466'
-						}}>E-mail or phone number</label>
-						<input id="phone" name="phone" value={"97870338"} sx={{
-							background: '#FFFFFF',
-							boxShadow: '0px 1px 2px rgba(50, 50, 71, 0.08), 0px 0px 1px rgba(50, 50, 71, 0.2)',
-							borderRadius: '6px',
-							outline: 'none',
-							border: '0',
-							padding: '14px 16px',
-							fontWeight: '500',
-							fontSize: '15px',
-							color: '#7A828A',
-							lineHeight: '15px',
-							margin: '.7rem 0'
-						}}/>
-					</div>
-					
-					<div sx={{display: 'flex', flexDirection: 'column'}}>
-						<label htmlFor="phone" sx={{
-							fontWeight: '500',
-							fontSize: '14px',
-							lineHeight: '17px',
-							display: 'flex',
-							alignItems: 'center',
-							color: '#425466'
-						}}>Password</label>
-						<input type="password" id="phone" name="phone" value={"97870338"} sx={{
-							background: '#FFFFFF',
-							boxShadow: '0px 1px 2px rgba(50, 50, 71, 0.08), 0px 0px 1px rgba(50, 50, 71, 0.2)',
-							borderRadius: '6px',
-							outline: 'none',
-							border: '0',
-							padding: '14px 16px',
-							fontWeight: '500',
-							fontSize: '15px',
-							color: '#7A828A',
-							lineHeight: '15px',
-							margin: '.7rem 0'
-						}}/>
-					</div>
+					<TextInput name="name" value="" setValue={undefined} label="Your name" type="text"/>
+					<TextInput name="phone" value="" setValue={undefined} label="Phone number" type="text"/>
+					<TextInput name="Password" value="" setValue={undefined} label="Password" type="Password" help={{text: "Must be 8 characters at least", color: '#718096'}}/>
 					
 					<button sx={{
 						variant: 'buttons.primary',
@@ -81,7 +37,7 @@ export default () => (
 						borderRadius: '8px',
 						fontSize: '14px',
 						lineHeight: '14px'
-					}}>Sign in</button>
+					}}>Register</button>
 				</form>
 				
 				<div sx={{display: 'flex', alignItems: 'center', margin: '0 0 30px 0'}}>
@@ -168,9 +124,9 @@ export default () => (
 					bottom: '0',
 					top: 'calc(100% - 30px)'
 				}}>
-					<span>Don’t have an account?</span>
+					<span>Already have an account? </span>
 					<Link href="/auth/login">
-						<span sx={{color: '#4C6FFF'}}>Get started</span>
+						<span sx={{color: '#4C6FFF', cursor: 'pointer'}}>Login</span>
 					</Link>
 				</div>
 			</div>
