@@ -3,26 +3,27 @@
 import {jsx} from 'theme-ui'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import logo from './dark.png'
-import React from "react"
+import React, {useState} from "react"
 import theme from '../../theme'
 
-const NavItem = ({text, active, icon, badge, href}) => {
-	const textStyle = {fontSize: '14px', flexBasis: '50%', marginRight: '10px', fontWeight: '600', color: 'inherit'}
+const NavItem = ({text, active, icon, badge, href, onClick}) => {
+	const textStyle = {fontSize: '14px', flexBasis: '50%', marginRight: '10px', fontWeight: '600', color: 'inherit', textDecoration: 'none'}
 	
 	return (
-		<div sx={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center', color: active ? 'primary' : '#425466', padding: '17px 22px 17px 0', cursor: 'pointer'}}>
-		<span sx={{
-			width: '2px',
-			height: '24px',
-			backgroundColor: '#4C6FFF',
-			marginRight: '22px',
-			visibility: active ? 'visible' : 'hidden'
-		}}/>
+		<div onClick={onClick} sx={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center', color: active ? 'primary' : '#425466', padding: '17px 22px 17px 0', cursor: 'pointer'}}>
+			<span sx={{
+				width: '2px',
+				height: '24px',
+				backgroundColor: '#4C6FFF',
+				marginRight: '22px',
+				visibility: active ? 'visible' : 'hidden'
+			}}/>
 			{ React.createElement(icon, {fill: active ? theme.colors.primary : '#425466'}) }
 			{ href ? (
-				<Link href={href}>
-					<a sx={textStyle}>{ text }</a>
+				<Link href={href} as={href}>
+					<a sx={textStyle} href={href}>{ text }</a>
 				</Link>
 			) : (
 				<span sx={textStyle}>{ text }</span>
@@ -56,26 +57,64 @@ const Badge = ({text, background, color}) => (
 	<span sx={{borderRadius: '100px', width: '28px', height: '19px', background: background, color: color || 'inherit', fontWeight: 'bold', fontSize: '12px', lineHeight: '19px', textAlign: 'center'}}>{text}</span>
 )
 
-const Sidebar = () => (
-	<div sx={{width: '250px', border: '1px solid #EDF2F7', display: 'flex', flexDirection: 'column', bg: '#FFFFFF', position: 'fixed', height: '100vh'}}>
-		<div sx={{display: 'flex', alignItems: 'center', margin: '30px 0 0 24px'}}>
-			<Image src={logo}/>
-			<span sx={{background: 'linear-gradient(225deg, #D665FF 0%, #4C6FFF 100%)',
-				WebkitBackgroundClip: 'text',
-				WebkitTextFillColor: 'transparent', fontWeight: 700, marginLeft: '12px'}}>SMART CARD</span>
+const Sidebar = () => {
+	const navItems = [
+		{id: 1, text: 'Users', icon: ChatIcon, badge: 6, href: '/table'},
+		{id: 2, text: 'Login', icon: ChatIcon, badge: 6, href: '/auth/login'},
+		{id: 3, text: 'Messages', icon: ChatIcon, badge: 6, href: '/'},
+	]
+	
+	const [activeItem, setActiveItem] = useState(navItems[0])
+	const router = useRouter()
+	
+	const userNav = [
+		{id: 4, text: 'Account', icon: UserIcon, onClick: () => router.push('/profil')},
+		{id: 5, text: 'Logout', icon: LogoutIcon, onClick: undefined},
+	]
+	
+	return (
+		<div sx={{width: '250px', border: '1px solid #EDF2F7', display: 'flex', flexDirection: 'column', bg: '#FFFFFF', position: 'fixed', height: '100vh'}}>
+			<div sx={{display: 'flex', alignItems: 'center', margin: '30px 0 0 24px'}}>
+				<Image src={logo}/>
+				<span sx={{background: 'linear-gradient(225deg, #D665FF 0%, #4C6FFF 100%)',
+					WebkitBackgroundClip: 'text',
+					WebkitTextFillColor: 'transparent', fontWeight: 700, marginLeft: '12px'}}>SMART CARD</span>
+			</div>
+			
+			<div sx={{margin: '4rem 0 0 0', flexBasis: '73%'}}>
+				{
+					navItems.map((item, i) => (
+						<NavItem
+							key={i}
+							text={item.text}
+							icon={item.icon}
+							badge={item.badge}
+							href={item.href}
+							active={activeItem.id === item.id}
+							onClick={() => setActiveItem(item)}
+						/>
+					))
+				}
+			</div>
+			
+			<div>
+				{
+					userNav.map((item, i) => (
+						<NavItem
+							key={i}
+							text={item.text}
+							icon={item.icon}
+							active={activeItem.id === item.id}
+							onClick={() => {
+								setActiveItem(item)
+								item.onClick && item.onClick()
+							}}
+						/>
+					))
+				}
+			</div>
 		</div>
-		
-		<div sx={{margin: '4rem 0 0 0', flexBasis: '73%'}}>
-			<NavItem text={"List"} icon={ChatIcon} badge={6} href="/table"/>
-			<NavItem text={"Login"} icon={ChatIcon} badge={6} active href="/auth/login"/>
-			<NavItem text={"Messages"} icon={ChatIcon} badge={6} href="/"/>
-		</div>
-		
-		<div>
-			<NavItem text={"Account"} icon={UserIcon} />
-			<NavItem text={"Logout"} icon={LogoutIcon} />
-		</div>
-	</div>
-)
+	)
+}
 
 export default Sidebar

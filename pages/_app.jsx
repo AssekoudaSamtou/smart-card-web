@@ -12,7 +12,6 @@ import Login from "./auth/login";
 import Register from "./auth/register";
 
 export default function App({ Component, pageProps }) {
-	console.log(Component === Index)
 	return (
 		<ThemeProvider theme={theme}>
 			{
