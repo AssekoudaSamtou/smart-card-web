@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { v4 as uuidv4 } from 'uuid'
 import logo from './dark.png'
+import Logo from '../images/logo.png'
 import React, {useState} from "react"
 import theme from '../../theme'
 
@@ -60,9 +61,9 @@ const Badge = ({text, background, color}) => (
 
 const navItems = [
 	{id: uuidv4(), text: 'Tableau de bord', icon: ChatIcon, href: '/'},
-	{id: uuidv4(), text: 'Applications', icon: ChatIcon, badge: 6, href: '/table'},
+	{id: uuidv4(), text: 'Applications', icon: ChatIcon, badge: 10, href: '/table'},
 	{id: uuidv4(), text: 'Messages', icon: ChatIcon, badge: 6, href: '/'},
-	{id: uuidv4(), text: 'Utilisateurs', icon: ChatIcon, badge: 6, href: '/table'},
+	{id: uuidv4(), text: 'Utilisateurs', icon: ChatIcon, badge: 10, href: '/table'},
 	{id: uuidv4(), text: 'Account', icon: UserIcon, href: '/profile'},
 	{id: uuidv4(), text: 'Logout', icon: LogoutIcon, onClick: () => router.push('/auth/login')},
 ]
@@ -74,10 +75,10 @@ const Sidebar = () => {
 	return (
 		<div sx={{width: '250px', border: '1px solid #EDF2F7', display: 'flex', flexDirection: 'column', bg: '#FFFFFF', position: 'fixed', height: '100vh'}}>
 			<div sx={{display: 'flex', alignItems: 'center', margin: '30px 0 0 24px'}}>
-				<Image src={logo}/>
-				<span sx={{background: 'linear-gradient(225deg, #D665FF 0%, #4C6FFF 100%)',
+				<Image src={Logo} sx={{cursor: 'pointer'}} onClick={() => router.push('/')}/>
+				{/*<span sx={{background: 'linear-gradient(225deg, #D665FF 0%, #4C6FFF 100%)',
 					WebkitBackgroundClip: 'text',
-					WebkitTextFillColor: 'transparent', fontWeight: 700, marginLeft: '12px'}}>SMART CARD</span>
+					WebkitTextFillColor: 'transparent', fontWeight: 700, marginLeft: '12px'}}>SMART CARD</span>*/}
 			</div>
 			
 			<div sx={{margin: '4rem 0 0 0', flexBasis: '73%'}}>

@@ -13,7 +13,7 @@ import Profile, {TABS as accountTabs} from "./profile"
 import "../src/style.css"
 
 export default function App({ Component, pageProps }) {
-	const [activeTab, setActiveTab] = useState(accountTabs[0])
+	const [activeTab, setActiveTab] = useState(accountTabs[1])
 	
 	const tabsItemClickHandler = (tab) => {
 		setActiveTab(tab)

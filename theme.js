@@ -4,11 +4,10 @@ const theme = {
 	...roboto,
 	containers: {
 		card: {
-			boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
-			border: '1px solid',
-			borderColor: 'muted',
-			borderRadius: '4px',
-			p: 2,
+			boxShadow: '0px 0px 1px rgba(12, 26, 75, 0.24), 0px 3px 8px -1px rgba(50, 50, 71, 0.05)',
+			borderRadius: '16px',
+			p: 24,
+			background: '#FFFFFF',
 		},
 		page: {
 			// width: '100vw',
