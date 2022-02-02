@@ -21,7 +21,7 @@ export default () => {
 	}
 	
 	return (
-		<div sx={{ height: `calc(100vh - 103px)`}}>
+		<div sx={{}}>
 			index
 		</div>
 	)

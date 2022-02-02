@@ -2,8 +2,8 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 
-const TextInput = ({label, name, value, setValue, type, help}) => (
-	<div sx={{display: 'flex', flexDirection: 'column'}}>
+const TextInput = ({label, name, value, setValue, type, help, style}) => (
+	<div sx={{display: 'flex', flexDirection: 'column', ...style}}>
 		<label htmlFor="phone" sx={{fontWeight: '500', fontSize: '14px', lineHeight: '17px', display: 'flex', alignItems: 'center', color: '#425466'}}>{label}</label>
 		<input type={type ? type : 'text'} id={name} name={name} value={value} onChange={event => setValue && setValue(event.target.value)} sx={{
 			background: '#FFFFFF',
@@ -16,7 +16,11 @@ const TextInput = ({label, name, value, setValue, type, help}) => (
 			fontSize: '15px',
 			color: '#7A828A',
 			lineHeight: '15px',
-			margin: '.7rem 0'
+			margin: '.7rem 0',
+			fontFamily: 'Inter',
+			'&:focus': {
+				boxShadow: '0px 0px 0px 2px rgba(76, 111, 255, 0.3)'
+			}
 		}}/>
 		{
 			help ? (

@@ -4,6 +4,7 @@ import {jsx} from 'theme-ui'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import { v4 as uuidv4 } from 'uuid'
 import logo from './dark.png'
 import React, {useState} from "react"
 import theme from '../../theme'
@@ -57,20 +58,18 @@ const Badge = ({text, background, color}) => (
 	<span sx={{borderRadius: '100px', width: '28px', height: '19px', background: background, color: color || 'inherit', fontWeight: 'bold', fontSize: '12px', lineHeight: '19px', textAlign: 'center'}}>{text}</span>
 )
 
+const navItems = [
+	{id: uuidv4(), text: 'Tableau de bord', icon: ChatIcon, href: '/'},
+	{id: uuidv4(), text: 'Applications', icon: ChatIcon, badge: 6, href: '/table'},
+	{id: uuidv4(), text: 'Messages', icon: ChatIcon, badge: 6, href: '/'},
+	{id: uuidv4(), text: 'Utilisateurs', icon: ChatIcon, badge: 6, href: '/table'},
+	{id: uuidv4(), text: 'Account', icon: UserIcon, href: '/profile'},
+	{id: uuidv4(), text: 'Logout', icon: LogoutIcon, onClick: () => router.push('/auth/login')},
+]
+
 const Sidebar = () => {
-	const navItems = [
-		{id: 1, text: 'Users', icon: ChatIcon, badge: 6, href: '/table'},
-		{id: 2, text: 'Login', icon: ChatIcon, badge: 6, href: '/auth/login'},
-		{id: 3, text: 'Messages', icon: ChatIcon, badge: 6, href: '/'},
-	]
-	
-	const [activeItem, setActiveItem] = useState(navItems[0])
 	const router = useRouter()
-	
-	const userNav = [
-		{id: 4, text: 'Account', icon: UserIcon, onClick: () => router.push('/profil')},
-		{id: 5, text: 'Logout', icon: LogoutIcon, onClick: undefined},
-	]
+	const [activeItem, setActiveItem] = useState(navItems.find(item => item.href === router.pathname) || navItems[0])
 	
 	return (
 		<div sx={{width: '250px', border: '1px solid #EDF2F7', display: 'flex', flexDirection: 'column', bg: '#FFFFFF', position: 'fixed', height: '100vh'}}>
@@ -83,9 +82,9 @@ const Sidebar = () => {
 			
 			<div sx={{margin: '4rem 0 0 0', flexBasis: '73%'}}>
 				{
-					navItems.map((item, i) => (
+					navItems.slice(0, 4).map((item, i) => (
 						<NavItem
-							key={i}
+							key={item.id}
 							text={item.text}
 							icon={item.icon}
 							badge={item.badge}
@@ -99,12 +98,13 @@ const Sidebar = () => {
 			
 			<div>
 				{
-					userNav.map((item, i) => (
+					navItems.slice(4, 6).map((item, i) => (
 						<NavItem
 							key={i}
 							text={item.text}
 							icon={item.icon}
 							active={activeItem.id === item.id}
+							href={item.href}
 							onClick={() => {
 								setActiveItem(item)
 								item.onClick && item.onClick()
