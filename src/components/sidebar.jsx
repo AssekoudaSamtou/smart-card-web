@@ -9,6 +9,7 @@ import logo from './dark.png'
 import Logo from '../images/logo.png'
 import React, {useState} from "react"
 import theme from '../../theme'
+// import {router} from "next/client"
 
 const NavItem = ({text, active, icon, badge, href, onClick}) => {
 	const textStyle = {fontSize: '14px', flexBasis: '50%', marginRight: '10px', fontWeight: '600', color: 'inherit', textDecoration: 'none'}
@@ -65,7 +66,7 @@ const navItems = [
 	{id: uuidv4(), text: 'Messages', icon: ChatIcon, badge: 6, href: '/'},
 	{id: uuidv4(), text: 'Utilisateurs', icon: ChatIcon, badge: 10, href: '/table'},
 	{id: uuidv4(), text: 'Account', icon: UserIcon, href: '/profile'},
-	{id: uuidv4(), text: 'Logout', icon: LogoutIcon, onClick: () => router.push('/auth/login')},
+	{id: uuidv4(), text: 'Logout', icon: LogoutIcon, onClick: () => location.replace('/auth/login')},
 ]
 
 const Sidebar = () => {

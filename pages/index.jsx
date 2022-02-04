@@ -25,7 +25,7 @@ export default () => {
 			<div sx={{display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap'}}>
 				{
 					Array(4).fill(1).map((item, i) => (
-						<div sx={{variant: 'containers.card', flexBasis: '370px', px: 12, mb: 24}}>
+						<div sx={{variant: 'containers.card', flexBasis: '23%', px: 12, mb: 24}}>
 							<div sx={{display: 'flex', justifyContent: 'space-between'}}>
 								<div sx={{display: 'flex', flexDirection: 'column'}}>
 									<span sx={{fontSize: '0.875rem', fontWeight: 500}}>Budget</span>
