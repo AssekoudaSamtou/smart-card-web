@@ -15,7 +15,33 @@ const theme = {
 			maxWidth: '960px',
 			m: 0,
 			mx: 'auto',
-		}
+		},
+		alert: {
+			boxShadow: '0px 0px 1px rgba(12, 26, 75, 0.24), 0px 3px 8px -1px rgba(50, 50, 71, 0.05)',
+			borderRadius: '16px',
+			display: 'inline-flex',
+			justifyContent: 'space-between',
+			alignItems: 'center',
+			p: 16,
+			width: '475px',
+			background: '#FFFFFF',
+			position: 'fixed',
+			top: 'calc(100% - 110px)',
+			left: 'calc(100% - 500px)',
+			
+			'& .message': {
+				fontWeight: 'normal',
+				fontSize: '14px',
+				lineHeight: '23px',
+				fontFeatureSettings: '\'salt\' on',
+				color: '#FFFFFF',
+				ml: 16,
+			},
+			'& .close': {
+				cursor: 'pointer',
+				p: '0 4px',
+			},
+		},
 	},
 	buttons: {
 		primary: {
@@ -42,6 +68,15 @@ const theme = {
 			fontSize: '12px',
 			lineHeight: '12px',
 			cursor: 'pointer',
+		},
+	},
+	icons: {
+		rounded: {
+			background: '#4AAE8C',
+			borderRadius: '100%',
+			p: 16,
+			alignSelf: 'start',
+			display: 'inline-flex'
 		},
 	},
 	styles: {

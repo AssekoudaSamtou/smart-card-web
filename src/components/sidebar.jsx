@@ -15,7 +15,19 @@ const NavItem = ({text, active, icon, badge, href, onClick}) => {
 	const textStyle = {fontSize: '14px', flexBasis: '50%', marginRight: '10px', fontWeight: '600', color: 'inherit', textDecoration: 'none'}
 	
 	return (
-		<div onClick={onClick} sx={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center', color: active ? 'primary' : '#425466', padding: '17px 22px 17px 0', cursor: 'pointer'}}>
+		<div onClick={onClick} sx={{
+			display: 'flex',
+			justifyContent: 'flex-start',
+			alignItems: 'center',
+			color: active ? 'primary' : '#425466',
+			padding: '17px 22px 17px 0',
+			cursor: 'pointer',
+			
+			'&:hover': {
+				color: '#495392',
+				backgroundColor: '#f5f9fc',
+			}
+		}}>
 			<span sx={{
 				width: '2px',
 				height: '24px',
