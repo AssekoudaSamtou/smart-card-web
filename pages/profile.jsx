@@ -39,7 +39,8 @@ const GeneralsTab = () => {
 				</div>
 				
 				<div sx={{display: 'flex', justifyContent: 'space-between'}}>
-					<TextInput style={{flexBasis: '100%'}} name="phone" value="Lome" setValue={undefined} label="Adresse" type="text"/>
+					<TextInput style={{flexBasis: '45%'}} name="phone" value="Lome" setValue={undefined} label="Adresse" type="text"/>
+					<TextInput style={{flexBasis: '45%'}} name="phone" value="Lome" setValue={undefined} label="Adresse" type="text"/>
 				</div>
 				
 				<div sx={{display: 'flex', justifyContent: 'end'}}>

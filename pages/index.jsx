@@ -1,42 +1,25 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import {jsx} from 'theme-ui'
-import Link from 'next/link'
-import Image from 'next/image'
-import Avatar from '../src/images/img.png'
 import Loading from "../src/components/Loading";
 import Alert from "../src/components/Alert";
 import RoundedIcon from "../src/components/RoundedIcon";
 
 export default () => {
-	const th = {
-		padding: '18px 0 18px 24px',
-		fontWeight: '600',
-		fontSize: '10px',
-		lineHeight: '16px',
-		textAlign: 'left',
-		letterSpacing: '0.06em',
-		textTransform: 'uppercase',
-		color: '#8492A6'
-	}
-	const td = {
-		padding: '18px 0 18px 24px',
-	}
-	
 	return (
 		<div>
 			<div sx={{display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap'}}>
 				{
-					Array(4).fill(1).map((item, i) => (
-						<div sx={{variant: 'containers.card', flexBasis: '23%', px: 12, mb: 24}}>
+					Array(4).fill(1).map((_, i) => (
+						<div key={i} sx={{variant: 'containers.card', flexBasis: '23%', px: 24, mb: 24}}>
 							<div sx={{display: 'flex', justifyContent: 'space-between'}}>
 								<div sx={{display: 'flex', flexDirection: 'column'}}>
 									<span sx={{fontSize: '0.875rem', fontWeight: 500}}>Budget</span>
-									<span sx={{fontWeight: 600, color: '#16192c', fontSize: '1.375rem'}}>500.54</span>
+									<span sx={{fontWeight: 600, color: '#16192c', fontSize: '1.375rem', mt: '8px'}}>500.54</span>
 								</div>
-								<RoundedIcon/>
+								<RoundedIcon roundColor={'#4C6FFF'}/>
 							</div>
-							<div sx={{display: 'flex', alignItems: 'center'}}>
+							<div sx={{display: 'flex', alignItems: 'center', mt: '8px'}}>
 								<span sx={{color: '#00cc88', lineHeight: '1rem', marginRight: '.5rem', backgroundColor: '#ccf5e7', borderRadius: '.375rem', display: 'inline-block',
 									padding: '.2rem .6rem',
 									fontSize: '0.75em',
