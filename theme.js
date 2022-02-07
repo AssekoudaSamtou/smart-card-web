@@ -57,7 +57,8 @@ const theme = {
 			m: '9px 0px',
 			'& .dropdown-item': {
 				display: 'flex',
-				p: '10px'
+				p: '10px',
+				cursor: 'pointer'
 			},
 			'& .dropdown-item:hover': {
 				bg: '#EDF2F7',

@@ -1,10 +1,23 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import {useState} from "react";
+import { useState } from "react"
+import { v4 as uuidv4 } from 'uuid'
 
-const SelectInput = ({label, name, value, setValue, type, help, style}) => {
+const SelectInput = ({label, name, value, setValue, type, help, style, options}) => {
+	options = [
+		{ id: uuidv4(), text: 'First option' },
+		{ id: uuidv4(), text: 'Second option' },
+		{ id: uuidv4(), text: 'Third option' },
+	]
+	console.log(options)
 	const [showMenu, setShowMenu] = useState(false)
+	const [selectedOption, setSelectedOption] = useState(options[1])
+	
+	const optionClickHandler = (option) => {
+		setSelectedOption(option)
+		setShowMenu(false)
+	}
 	
 	return (
 		<div sx={{display: 'flex', flexDirection: 'column', position: 'relative', ...style}}>
@@ -18,15 +31,17 @@ const SelectInput = ({label, name, value, setValue, type, help, style}) => {
 			{
 				showMenu ? (
 					<div sx={{variant: 'containers.dropdown'}}>
-						<div className="dropdown-item">
-							<span>First option</span>
-						</div>
-						<div className="dropdown-item active">
-							<span>First option</span>
-						</div>
-						<div className="dropdown-item">
-							<span>First option</span>
-						</div>
+						{
+							options && options.map((item, i) => (
+								<div
+									key={i}
+									onClick={ () => optionClickHandler(item) }
+									className={`dropdown-item ${ item.id === selectedOption.id ? 'active' : '' }`}
+								>
+									<span>{ item.text }</span>
+								</div>
+							))
+						}
 					</div>
 				) : ''
 			}
