@@ -62,17 +62,13 @@ const Modal = ({ handleClose, children }) => {
 				sx={{
 					display: 'flex',
 					flexDirection: 'column',
-					width: '70vw',
-					height: '400px',
-					background: '#FFFFFF',
+					background: '#F7FAFC',
 					borderRadius: '16px',
-					p: '16px',
+					p: '24px',
 					boxShadow: '0px 0px 1px rgba(12, 26, 75, 0.24), 0px 3px 8px -1px rgba(50, 50, 71, 0.05)',
 				}}
 			>
-				<div>
-					{ children }
-				</div>
+				{ children }
 			</motion.div>
 		</motion.div>
 	)

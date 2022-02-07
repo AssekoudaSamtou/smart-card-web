@@ -6,6 +6,7 @@ import React from 'react'
 import Hero from '../src/images/Image.png'
 import { v4 as uuidv4 } from 'uuid'
 import TextInput from "../src/components/textInput";
+import SelectInput from "../src/components/selectInput";
 
 
 const GeneralsTab = () => {
@@ -40,7 +41,7 @@ const GeneralsTab = () => {
 				
 				<div sx={{display: 'flex', justifyContent: 'space-between'}}>
 					<TextInput style={{flexBasis: '45%'}} name="phone" value="Lome" setValue={undefined} label="Adresse" type="text"/>
-					<TextInput style={{flexBasis: '45%'}} name="phone" value="Lome" setValue={undefined} label="Adresse" type="text"/>
+					<SelectInput style={{flexBasis: '45%'}} name="phone" value="Lome" setValue={undefined} label="Adresse" type="text"/>
 				</div>
 				
 				<div sx={{display: 'flex', justifyContent: 'end'}}>

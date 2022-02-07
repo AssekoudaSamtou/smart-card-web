@@ -8,15 +8,30 @@ import {useState} from "react"
 import Loading from "../../src/components/Loading"
 import Modal from "../../src/components/Modal";
 
-export default () => {
+export default ({ showNotification }) => {
 	const [isSubmitting, setIsSubmitting] = useState(false)
+	const [isSubmitting2, setIsSubmitting2] = useState(false)
 	const [showModal, setShowModal] = useState(false)
-	
+	const [fullname, setFullname] = useState('')
+	const [phone, setPhone] = useState('')
+	const [password, setPassword] = useState('')
+	const [secretCode, setSecretCode] = useState('')
+
 	const formSubmitHandler = (event) => {
 		event.preventDefault()
 		setIsSubmitting(true)
 		
-		setTimeout(() => setShowModal(true), 5000)
+		setTimeout(() => setShowModal(true), 500)
+	}
+	
+	const secretCodeBtnClickHandler = (event) => {
+		setIsSubmitting2(true)
+		setTimeout(() => {
+			setShowModal(false)
+			setIsSubmitting(false)
+			setIsSubmitting2(false)
+			showNotification('success', 'Bravo, votre numéro de téléphone est vérifié')
+		}, 500)
 	}
 	
 	const modalCloseHandler = () => {
@@ -45,14 +60,22 @@ export default () => {
 					{
 						showModal ? (
 							<Modal handleClose={ modalCloseHandler }>
-								cc
+								<div sx={{width: '350px'}}>
+									<h5 sx={{variant: 'headings.h5'}}>Vérifiez votre numéro de téléphone</h5>
+									<TextInput name="secret_code" value={ secretCode } setValue={ setSecretCode } label="Code secret" type="text"/>
+									<div sx={{display: 'flex', justifyContent: 'center'}}>
+										<button sx={{ variant: 'buttons.primary', mt: '10px' }} onClick={ secretCodeBtnClickHandler }>
+											{ isSubmitting2 ? (<Loading width={12} height={12} src={Loader}/>) : 'Vérifiez' }
+										</button>
+									</div>
+								</div>
 							</Modal>
 						) : ''
 					}
 					<form onSubmit={ formSubmitHandler } sx={{margin: '54px 0 0 0'}} autoComplete="off">
-						<TextInput name="name" value="" setValue={undefined} label="Your name" type="text"/>
-						<TextInput name="phone" value="" setValue={undefined} label="Phone number" type="text"/>
-						<TextInput name="Password" value="" setValue={undefined} label="Password" type="Password" help={{text: "Must be 8 characters at least", color: '#718096'}}/>
+						<TextInput name="name" value={ fullname } setValue={ setFullname } label="Your name" type="text"/>
+						<TextInput name="phone" value={ phone } setValue={ setPhone } label="Phone number" type="text"/>
+						<TextInput name="Password" value={ password } setValue={ setPassword } label="Password" type="Password" help={{text: "Must be 8 characters at least", color: '#718096'}} autoComplete="new-password"/>
 						
 						<button disabled={ isSubmitting } sx={{
 							variant: 'buttons.primary',
