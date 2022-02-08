@@ -12,11 +12,11 @@ import Alert from "../src/components/Alert"
 import Login from "./auth/login"
 import Register from "./auth/register"
 import Profile, {TABS as accountTabs} from "./profile"
-import { AppStateProvider } from "../context/app-data"
+// import { AppStateProvider } from "../context/app-data"
 import "../src/style.css"
 
 export default function App({ Component, pageProps }) {
-	const [activeTab, setActiveTab] = useState(accountTabs[0])
+	const [activeTab, setActiveTab] = useState(accountTabs[1])
 	const [notifications, setNotifications] = useState([])
 	
 	const tabsItemClickHandler = (tab) => {
@@ -38,7 +38,7 @@ export default function App({ Component, pageProps }) {
 	return (
 		<React.StrictMode>
 			<ThemeProvider theme={theme}>
-				<AppStateProvider>
+				{/*<AppStateProvider>*/}
 					{
 						[Login, Register].includes(Component) ? (
 							<Component {...pageProps} showNotification={showNotification} />
@@ -59,7 +59,7 @@ export default function App({ Component, pageProps }) {
 							<Alert key={i} text={item.text} type={item.type} />
 						))
 					}
-				</AppStateProvider>
+				{/*</AppStateProvider>*/}
 			</ThemeProvider>
 		</React.StrictMode>
 	)

@@ -10,8 +10,6 @@ const theme = {
 			background: '#FFFFFF',
 		},
 		page: {
-			// width: '100vw',
-			// height: '100vh',
 			maxWidth: '960px',
 			m: 0,
 			mx: 'auto',
@@ -57,8 +55,11 @@ const theme = {
 			m: '9px 0px',
 			'& .dropdown-item': {
 				display: 'flex',
+				justifyContent: 'flex-start',
 				p: '10px',
-				cursor: 'pointer'
+				cursor: 'pointer',
+				userSelect: 'none',
+				color: '#425466'
 			},
 			'& .dropdown-item:hover': {
 				bg: '#EDF2F7',
@@ -67,6 +68,9 @@ const theme = {
 				bg: '#4C6FFF',
 				borderRadius: '6px',
 				color: '#FFFFFF'
+			},
+			'& .dropdown-item svg': {
+				m: '0 12px 0 0',
 			},
 			'& .dropdown-item:active': {
 				bg: '#4C6FFF',
@@ -82,7 +86,6 @@ const theme = {
 				lineHeight: '14px',
 				display: 'flex',
 				alignItems: 'center',
-				color: '#425466'
 			},
 		}
 	},
