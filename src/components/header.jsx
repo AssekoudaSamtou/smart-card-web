@@ -8,7 +8,7 @@ import {v4 as uuidv4} from "uuid"
 const Header = ({tabs}) => (
 	<header sx={{bg: '#FFF', position: 'fixed', width: 'calc(100vw - 250px)', borderColor: 'primary', display: 'flex', flexDirection: 'column', alignItems: 'stretch', padding: tabs && tabs.items ? '30px 30px 0' : '30px', borderBottom: '1px solid #EDF2F7', zIndex: '1'}}>
 		<div sx={{display: 'flex', alignItems: 'center',  justifyContent: 'space-between'}}>
-			<span sx={{fontWeight: 'bold', fontSize: '28px', color: '#27272E'}}>Dashboard</span>
+			<span sx={{fontWeight: 'bold', fontSize: '28px', color: '#27272E'}}>Tableau de bord</span>
 			<nav sx={{display: 'flex', alignItems: 'center',  justifyContent: 'space-between', height: '100%'}}>
 				{/*<button sx={{variant: 'buttons.light'}}>
 				<svg sx={{margin: '0 .5rem 0 0'}} width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">

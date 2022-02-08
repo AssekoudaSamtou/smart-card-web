@@ -13,23 +13,18 @@ export default () => (
 			<div sx={{width: '60%'}}>
 				<span>👋</span>
 				<div sx={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start'}}>
-					<span sx={{
-						fontWeight: '600',
-						fontSize: '28px',
-						lineHeight: '136.02%',
-						color: '#27272E'
-					}}>Welcome back!</span>
-					<span sx={{
+					<span sx={{fontWeight: '600', fontSize: '28px', lineHeight: '136.02%', color: '#27272E'}}>Bienvenue !</span>
+					{/*<span sx={{
 						fontSize: '16px',
 						lineHeight: '162.02%',
 						fontFeatureSettings: '\'salt\' on',
 						color: '#27272E'
-					}}>Let's build something great</span>
+					}}>Let's build something great</span>*/}
 				</div>
 				
 				<form sx={{margin: '54px 0 0 0'}}>
-					<TextInput name="phone" value="8454121" setValue={undefined} label="E-mail or phone number" type="text"/>
-					<TextInput name="Password" value="8454121" setValue={undefined} label="Password" type="Password"/>
+					<TextInput name="phone" value="8454121" setValue={undefined} label="Numéro de téléphone" type="text"/>
+					<TextInput name="Password" value="8454121" setValue={undefined} label="Mot de passe" type="Password"/>
 					
 					<button sx={{
 						variant: 'buttons.primary',
@@ -40,7 +35,7 @@ export default () => (
 						borderRadius: '8px',
 						fontSize: '14px',
 						lineHeight: '14px'
-					}}>Sign in</button>
+					}}>Se connecter</button>
 				</form>
 				
 				<div sx={{display: 'flex', alignItems: 'center', margin: '0 0 30px 0'}}>
@@ -52,7 +47,7 @@ export default () => (
 						textAlign: 'center',
 						color: '#718096',
 						margin: '0 24px',
-					}}>or do it via other accounts</span>
+					}}>ou faite le via d'autres comptes</span>
 					<span sx={{flexGrow: 1, border: '1px solid #EDF2F7'}}/>
 				</div>
 				
@@ -117,19 +112,12 @@ export default () => (
 				</div>
 				
 				<div sx={{
-					fontWeight: '600',
-					fontSize: '14px',
-					lineHeight: '24px',
-					textAlign: 'right',
-					color: '#718096',
-					position: 'absolute',
-					left: 'calc(100% - 250px)',
-					bottom: '0',
-					top: 'calc(100% - 30px)'
+					fontWeight: '600', fontSize: '14px', lineHeight: '24px', textAlign: 'right',
+					color: '#718096', position: 'absolute', left: 'calc(100% - 340px)', bottom: '0', top: 'calc(100% - 30px)'
 				}}>
-					<span>Don’t have an account? </span>
+					<span>Vous n'avez pas de compte ? </span>
 					<Link href="/auth/register">
-						<span sx={{color: '#4C6FFF', cursor: 'pointer'}}>Get started</span>
+						<span sx={{color: '#4C6FFF', cursor: 'pointer'}}>Creer un compte</span>
 					</Link>
 				</div>
 			</div>
