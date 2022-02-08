@@ -68,6 +68,11 @@ const theme = {
 				borderRadius: '6px',
 				color: '#FFFFFF'
 			},
+			'& .dropdown-item:active': {
+				bg: '#4C6FFF',
+				borderRadius: '6px',
+				color: '#FFFFFF'
+			},
 			'& .dropdown-item.active span': {
 				color: '#FFFFFF'
 			},
@@ -158,7 +163,7 @@ const theme = {
 			fontWeight: '500',
 			fontSize: '15px',
 			color: '#7A828A',
-			lineHeight: '15px',
+			lineHeight: '19px',
 			margin: '.7rem 0',
 			fontFamily: 'Inter',
 			'&:focus': {
@@ -167,10 +172,7 @@ const theme = {
 			'&:active': {
 				boxShadow: '0px 0px 0px 2px rgba(76, 111, 255, 0.3)'
 			},
-			'& .control': {
-				fontWeight: 500,
-				fontSize: '13px',
-				lineHeight: '13px',
+			'& .control.disabled': {
 				color: '#B5B5BD',
 			},
 		},

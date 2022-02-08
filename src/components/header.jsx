@@ -21,7 +21,7 @@ const Header = ({tabs}) => (
 						<path fillRule="evenodd" clipRule="evenodd" d="M6 0C6.66274 0 7.2 0.537258 7.2 1.2V4.8H10.8C11.4627 4.8 12 5.33726 12 6C12 6.66274 11.4627 7.2 10.8 7.2H7.2V10.8C7.2 11.4627 6.66274 12 6 12C5.33726 12 4.8 11.4627 4.8 10.8V7.2H1.2C0.537258 7.2 0 6.66274 0 6C0 5.33726 0.537258 4.8 1.2 4.8H4.8V1.2C4.8 0.537258 5.33726 0 6 0Z" fill="white"/>
 					</svg>
 					create
-					<div sx={{variant: 'containers.dropdown'}}>
+					{/*<div sx={{variant: 'containers.dropdown'}}>
 						<div className="dropdown-item">
 							<span>First option</span>
 						</div>
@@ -31,7 +31,7 @@ const Header = ({tabs}) => (
 						<div className="dropdown-item">
 							<span>First option</span>
 						</div>
-					</div>
+					</div>*/}
 				</button>
 			</nav>
 		</div>

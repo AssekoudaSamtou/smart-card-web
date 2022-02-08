@@ -12,6 +12,7 @@ import Alert from "../src/components/Alert"
 import Login from "./auth/login"
 import Register from "./auth/register"
 import Profile, {TABS as accountTabs} from "./profile"
+import { AppStateProvider } from "../context/app-data"
 import "../src/style.css"
 
 export default function App({ Component, pageProps }) {
@@ -37,26 +38,28 @@ export default function App({ Component, pageProps }) {
 	return (
 		<React.StrictMode>
 			<ThemeProvider theme={theme}>
-				{
-					[Login, Register].includes(Component) ? (
-						<Component {...pageProps} showNotification={showNotification} />
-					) : (
-						<div sx={{display: 'flex', bg: '#F7FAFC'}}>
-							<Sidebar/>
-							<div sx={{flexGrow: '1', paddingLeft: '250px'}}>
-								<Header tabs={TABS[Component]}/>
-								<div sx={{padding: '150px 30px 0 30px', height: `calc(100vh - 0px)`, overflow: 'scroll'}}>
-									<Component {...pageProps} activeTab={activeTab} showNotification={showNotification} />
+				<AppStateProvider>
+					{
+						[Login, Register].includes(Component) ? (
+							<Component {...pageProps} showNotification={showNotification} />
+						) : (
+							<div sx={{display: 'flex', bg: '#F7FAFC'}}>
+								<Sidebar/>
+								<div sx={{flexGrow: '1', paddingLeft: '250px'}}>
+									<Header tabs={TABS[Component]}/>
+									<div sx={{padding: '150px 30px 0 30px', height: `calc(100vh - 0px)`, overflow: 'scroll'}}>
+										<Component {...pageProps} activeTab={activeTab} showNotification={showNotification} />
+									</div>
 								</div>
 							</div>
-						</div>
-					)
-				}
-				{
-					notifications.map((item, i) => (
-						<Alert key={i} text={item.text} type={item.type} />
-					))
-				}
+						)
+					}
+					{
+						notifications.map((item, i) => (
+							<Alert key={i} text={item.text} type={item.type} />
+						))
+					}
+				</AppStateProvider>
 			</ThemeProvider>
 		</React.StrictMode>
 	)

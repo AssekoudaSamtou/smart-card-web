@@ -12,7 +12,7 @@ const TextInput = ({label, name, value, setValue, type, help, style, required}) 
 			required={ required ? required : true}
 			type={type ? type : 'text'}
 			onChange={event => setValue && setValue(event.target.value)}
-			sx={{variant: 'controls.select'}}
+			sx={{variant: 'controls.input'}}
 		/>
 		{
 			help ? (
