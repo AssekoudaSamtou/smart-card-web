@@ -64,7 +64,7 @@ export default ({ showNotification }) => {
 					}
 					<form onSubmit={ formSubmitHandler } sx={{margin: '54px 0 0 0'}} autoComplete="off">
 						<TextInput name="name" value={ fullname } setValue={ setFullname } label="Votre nom" type="text"/>
-						<TextInput name="phone" value={ phone } setValue={ setPhone } label="Numéro de téléphone" type="text"/>
+						<TextInput name="phone" value={ phone } setValue={ setPhone } label="Numéro de téléphone ou Email" type="text"/>
 						<TextInput name="Password" value={ password } setValue={ setPassword } label="Mot de passe" type="Password" help={{text: "Doit comporter au moins 8 caractères", color: '#718096'}} autoComplete="new-password"/>
 						
 						<button disabled={ isSubmitting } sx={{
@@ -75,7 +75,7 @@ export default ({ showNotification }) => {
 						</button>
 					</form>
 					
-					<div sx={{display: 'flex', alignItems: 'center', margin: '0 0 30px 0'}}>
+					{/*<div sx={{display: 'flex', alignItems: 'center', margin: '0 0 30px 0'}}>
 						<span sx={{flexGrow: 1, border: '1px solid #EDF2F7'}}/>
 						<span sx={{fontSize: '10px', lineHeight: '12px', alignItems: 'center', textAlign: 'center', color: '#718096', margin: '0 24px',}}>ou faite le via d'autres comptes</span>
 						<span sx={{flexGrow: 1, border: '1px solid #EDF2F7'}}/>
@@ -118,7 +118,7 @@ export default ({ showNotification }) => {
 						}}>
 							f
 						</span>
-					</div>
+					</div>*/}
 					
 					<div sx={{
 						fontWeight: '600', fontSize: '14px', lineHeight: '24px', textAlign: 'right',

@@ -8,7 +8,7 @@ import RoundedIcon from "../src/components/RoundedIcon";
 const stats = [
 	{title: 'Utilisateurs', value: '500.54', icon: '', trend: 13},
 	{title: 'Contacts', value: '500', icon: '', trend: 13},
-	{title: 'Comptes de réseaux sociaux', value: '70', icon: '', trend: 13},
+	{title: 'Réseaux sociaux', value: '70', icon: '', trend: 13},
 	{title: 'Lectures', value: '800', icon: '', trend: 13},
 ]
 

@@ -47,10 +47,10 @@ const GeneralsTab = () => {
 						setValue={undefined}
 						label="Adresse" type="text"
 						options={[
-						{ id: uuidv4(), text: 'First option' },
-						{ id: uuidv4(), text: 'Second option' },
-						{ id: uuidv4(), text: 'Third option' },
-					]}
+							{ id: uuidv4(), text: 'First option' },
+							{ id: uuidv4(), text: 'Second option' },
+							{ id: uuidv4(), text: 'Third option' },
+						]}
 					/>
 				</div>
 				

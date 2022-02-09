@@ -23,7 +23,7 @@ export default () => (
 				</div>
 				
 				<form sx={{margin: '54px 0 0 0'}}>
-					<TextInput name="phone" value="8454121" setValue={undefined} label="Numéro de téléphone" type="text"/>
+					<TextInput name="phone" value="8454121" setValue={undefined} label="Numéro de téléphone ou Email" type="text"/>
 					<TextInput name="Password" value="8454121" setValue={undefined} label="Mot de passe" type="Password"/>
 					
 					<button sx={{
@@ -38,7 +38,7 @@ export default () => (
 					}}>Se connecter</button>
 				</form>
 				
-				<div sx={{display: 'flex', alignItems: 'center', margin: '0 0 30px 0'}}>
+				{/*<div sx={{display: 'flex', alignItems: 'center', margin: '0 0 30px 0'}}>
 					<span sx={{flexGrow: 1, border: '1px solid #EDF2F7'}}/>
 					<span sx={{
 						fontSize: '10px',
@@ -109,7 +109,7 @@ export default () => (
 					}}>
 						f
 					</span>
-				</div>
+				</div>*/}
 				
 				<div sx={{
 					fontWeight: '600', fontSize: '14px', lineHeight: '24px', textAlign: 'right',
