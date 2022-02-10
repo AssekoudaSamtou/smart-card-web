@@ -187,9 +187,14 @@ const theme = {
 		body: 'Inter',
 	},
 	colors: {
-		text: '#718096',
-		background: '#FFFFFF',
+		default: '#FFFFFF',
 		primary: '#4C6FFF',
+		secondary: '#E4ECF7',
+		tertiary: '#FF92AE',
+		success: '#66CB9F',
+		info: '#68DBF2',
+		danger: '#F16063',
+		warning: '#F7936F',
 	},
 }
 

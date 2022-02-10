@@ -4,6 +4,7 @@ import {jsx} from 'theme-ui'
 import React from "react"
 import Image from "next/image"
 import RoundedIcon from "../src/components/RoundedIcon"
+import Button from "../src/components/Button"
 import {PersonLineFill, UserIcon, GlobeIcon} from "../icons"
 import Hero from "../src/images/Rounded Rectangle.png"
 
@@ -52,67 +53,25 @@ export default () => {
 			
 			
 			<div sx={{display: 'flex'}}>
-				<div sx={{
-					variant: 'containers.card',
-					padding: '8px',
-					display: 'flex',
-					flexDirection: 'column',
-					alignItems: 'stretch',
-					flexBasis: '343px',
-				}}>
+				<div sx={{variant: 'containers.card', padding: '8px', display: 'flex', flexDirection: 'column', alignItems: 'stretch', flexBasis: '343px'}}>
 					<div sx={{position: 'relative'}}>
 						<Image sx={{borderRadius: '16px'}} src={Hero}/>
 					</div>
-					<div sx={{display: 'flex', flexDirection: 'column'}}>
-						<span sx={{
-						variant: 'headings.h5',
-						// alignItems: 'center',
-						// textAlign: 'center',
-						color: '#27272E',
-						alignSelf: 'center',
-					}}>Nom & Prénoms</span>
-						<span sx={{
-							fontWeight: 'normal',
-							fontSize: '14px',
-							lineHeight: '23px',
-							display: 'flex',
-							alignItems: 'center',
-							textAlign: 'center',
-							fontFeatureSettings: '\'salt\' on',
-							color: '#425466',
-							alignSelf: 'center',
-						}}>Ville - Pays</span>
+					
+					<div sx={{padding: '0 8px'}}>
+						<div sx={{display: 'flex', flexDirection: 'column', alignItems: 'stretch'}}>
+							<span sx={{variant: 'headings.h5'}}>Titre du poste</span>
+							<span sx={{fontSize: '14px', lineHeight: '23px', color: '#718096'}}>Monday Jan 20 , 2020</span>
+						</div>
+						
+						<p sx={{fontSize: '14px', lineHeight: '23px', color: '#425466'}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare pretium placerat ut platea... </p>
+						
+						<div sx={{display: 'flex'}}>
+							<Button color="warning">Read more</Button>
+						</div>
 					</div>
-					<div sx={{border: '1px solid #F3F5F8', margin: '24px 0px'}}/>
-					<div sx={{padding: '16px 8px 8px', display: 'flex', margin: '24px 0px', justifyContent: 'space-around'}}>
-						{
-							stats.map(item => (
-								<div sx={{display: 'flex', flexDirection: 'column'}}>
-								<span sx={{
-									fontWeight: 'bold',
-									fontSize: '18px',
-									lineHeight: '22px',
-									display: 'flex',
-									alignItems: 'center',
-									textAlign: 'center',
-									letterSpacing: '-0.005em',
-									color: '#4C6FFF',
-									alignSelf: 'center'
-								}}>{item.value}</span>
-									<span sx={{
-										fontWeight: 'normal',
-										fontSize: '12px',
-										lineHeight: '162.52%',
-										display: 'flex',
-										alignItems: 'center',
-										textAlign: 'center',
-										color: '#425466',
-										alignSelf: 'center'
-									}}>{item.desc}</span>
-								</div>
-							))
-						}
-					</div>
+					
+					
 				</div>
 			</div>
 			
