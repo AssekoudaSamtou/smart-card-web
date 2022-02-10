@@ -1,15 +1,17 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import {jsx} from 'theme-ui'
-import Loading from "../src/components/Loading";
-import Alert from "../src/components/Alert";
-import RoundedIcon from "../src/components/RoundedIcon";
+import React from "react"
+import Image from "next/image"
+import RoundedIcon from "../src/components/RoundedIcon"
+import {PersonLineFill, UserIcon, GlobeIcon} from "../icons"
+import Hero from "../src/images/Rounded Rectangle.png"
 
 const stats = [
-	{title: 'Utilisateurs', value: '500.54', icon: '', trend: 13},
-	{title: 'Contacts', value: '500', icon: '', trend: 13},
-	{title: 'Réseaux sociaux', value: '70', icon: '', trend: 13},
-	{title: 'Lectures', value: '800', icon: '', trend: 13},
+	{title: 'Utilisateurs', value: '500.54', icon: UserIcon, trend: 13},
+	{title: 'Contacts', value: '500', icon: PersonLineFill, trend: 13},
+	{title: 'Réseaux sociaux', value: '70', icon: GlobeIcon, trend: 13},
+	{title: 'Lectures', value: '800', icon: GlobeIcon, trend: 13},
 ]
 
 export default () => {
@@ -25,9 +27,7 @@ export default () => {
 									<span sx={{fontWeight: 600, color: '#16192c', fontSize: '1.375rem', mt: '8px'}}>{ item.value }</span>
 								</div>
 								<RoundedIcon roundColor={'#4C6FFF'}>
-									<svg width="16" height="16" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path fillRule="evenodd" clipRule="evenodd" d="M27.6169 3.95504C27.6169 2.07492 26.0927 0.550781 24.2126 0.550781H3.78707C1.90695 0.550781 0.382812 2.07492 0.382812 3.95504V17.5721C0.382812 19.4522 1.90695 20.9763 3.78707 20.9763H20.1033C20.5547 20.9763 20.9877 21.1556 21.3069 21.4749L26.164 26.332C26.7001 26.8681 27.6169 26.4884 27.6169 25.7302V3.95504ZM8.89345 10.7635C8.89345 11.7036 8.13138 12.4657 7.19132 12.4657C6.25126 12.4657 5.4892 11.7036 5.4892 10.7635C5.4892 9.82349 6.25126 9.06142 7.19132 9.06142C8.13138 9.06142 8.89345 9.82349 8.89345 10.7635ZM15.702 10.7635C15.702 11.7036 14.9399 12.4657 13.9998 12.4657C13.0598 12.4657 12.2977 11.7036 12.2977 10.7635C12.2977 9.82349 13.0598 9.06142 13.9998 9.06142C14.9399 9.06142 15.702 9.82349 15.702 10.7635ZM20.8083 12.4657C21.7484 12.4657 22.5105 11.7036 22.5105 10.7635C22.5105 9.82349 21.7484 9.06142 20.8083 9.06142C19.8683 9.06142 19.1062 9.82349 19.1062 10.7635C19.1062 11.7036 19.8683 12.4657 20.8083 12.4657Z" fill={"white"}/>
-									</svg>
+									{ React.createElement(item.icon, { fill: '#FFFFFF' }) }
 								</RoundedIcon>
 							</div>
 							<div sx={{display: 'flex', alignItems: 'center', mt: '8px'}}>
@@ -49,6 +49,73 @@ export default () => {
 					))
 				}
 			</div>
+			
+			
+			<div sx={{display: 'flex'}}>
+				<div sx={{
+					variant: 'containers.card',
+					padding: '8px',
+					display: 'flex',
+					flexDirection: 'column',
+					alignItems: 'stretch',
+					flexBasis: '343px',
+				}}>
+					<div sx={{position: 'relative'}}>
+						<Image sx={{borderRadius: '16px'}} src={Hero}/>
+					</div>
+					<div sx={{display: 'flex', flexDirection: 'column'}}>
+						<span sx={{
+						variant: 'headings.h5',
+						// alignItems: 'center',
+						// textAlign: 'center',
+						color: '#27272E',
+						alignSelf: 'center',
+					}}>Nom & Prénoms</span>
+						<span sx={{
+							fontWeight: 'normal',
+							fontSize: '14px',
+							lineHeight: '23px',
+							display: 'flex',
+							alignItems: 'center',
+							textAlign: 'center',
+							fontFeatureSettings: '\'salt\' on',
+							color: '#425466',
+							alignSelf: 'center',
+						}}>Ville - Pays</span>
+					</div>
+					<div sx={{border: '1px solid #F3F5F8', margin: '24px 0px'}}/>
+					<div sx={{padding: '16px 8px 8px', display: 'flex', margin: '24px 0px', justifyContent: 'space-around'}}>
+						{
+							stats.map(item => (
+								<div sx={{display: 'flex', flexDirection: 'column'}}>
+								<span sx={{
+									fontWeight: 'bold',
+									fontSize: '18px',
+									lineHeight: '22px',
+									display: 'flex',
+									alignItems: 'center',
+									textAlign: 'center',
+									letterSpacing: '-0.005em',
+									color: '#4C6FFF',
+									alignSelf: 'center'
+								}}>{item.value}</span>
+									<span sx={{
+										fontWeight: 'normal',
+										fontSize: '12px',
+										lineHeight: '162.52%',
+										display: 'flex',
+										alignItems: 'center',
+										textAlign: 'center',
+										color: '#425466',
+										alignSelf: 'center'
+									}}>{item.desc}</span>
+								</div>
+							))
+						}
+					</div>
+				</div>
+			</div>
+			
 		</div>
 	)
 }

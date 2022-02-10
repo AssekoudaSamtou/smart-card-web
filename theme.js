@@ -132,7 +132,7 @@ const theme = {
 			lineHeight: '25px',
 			display: 'flex',
 			alignItems: 'center',
-			color: '#16192C',
+			color: '#27272E',
 		}
 	},
 	controls: {
