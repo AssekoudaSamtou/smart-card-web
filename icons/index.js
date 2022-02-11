@@ -1,6 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import {jsx} from 'theme-ui'
+import React from "react"
 
 export const ChatIcon = ({fill, sx}) => (
 	<svg sx={sx} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,6 +38,12 @@ export const GlobeIcon = ({fill, sx}) => (
 		         10.0854 1.89722 10.6372 2.93199C10.81 3.25594 10.967 3.61363 11.105 3.99999Z" fill={fill}/>
 	</svg>
 )
+
+export const PlusIcon = ({fill, sx}) => (
+	<svg sx={sx} width="16" height="16" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path fillRule="evenodd" clipRule="evenodd" d="M6 0C6.66274 0 7.2 0.537258 7.2 1.2V4.8H10.8C11.4627 4.8 12 5.33726 12 6C12 6.66274 11.4627 7.2 10.8 7.2H7.2V10.8C7.2 11.4627 6.66274 12 6 12C5.33726 12 4.8 11.4627 4.8 10.8V7.2H1.2C0.537258 7.2 0 6.66274 0 6C0 5.33726 0.537258 4.8 1.2 4.8H4.8V1.2C4.8 0.537258 5.33726 0 6 0Z" fill={fill}/>
+	</svg>
+)
 export const PersonLineFill = ({fill, sx}) => (
 	<svg sx={sx} width="16" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<path fillRule="evenodd" clipRule="evenodd" d="M1.25 14C1.25 14 0.25 14 0.25 13C0.25 12 1.25 9 6.25 9C11.25 9 12.25 12 12.25 13C12.25 14 11.25 14 11.25 14H1.25Z" fill={fill}/>
@@ -45,5 +52,10 @@ export const PersonLineFill = ({fill, sx}) => (
 		<path fillRule="evenodd" clipRule="evenodd" d="M11.25 6.5C11.25 6.22386 11.4739 6 11.75 6H15.75C16.0261 6 16.25 6.22386 16.25 6.5C16.25 6.77614 16.0261 7 15.75 7H11.75C11.4739 7 11.25 6.77614 11.25 6.5Z" fill={fill}/>
 		<path fillRule="evenodd" clipRule="evenodd" d="M11.25 3.5C11.25 3.22386 11.4739 3 11.75 3H15.75C16.0261 3 16.25 3.22386 16.25 3.5C16.25 3.77614 16.0261 4 15.75 4H11.75C11.4739 4 11.25 3.77614 11.25 3.5Z" fill={fill}/>
 		<path fillRule="evenodd" clipRule="evenodd" d="M13.25 12.5C13.25 12.2239 13.4739 12 13.75 12H15.75C16.0261 12 16.25 12.2239 16.25 12.5C16.25 12.7761 16.0261 13 15.75 13H13.75C13.4739 13 13.25 12.7761 13.25 12.5Z" fill={fill}/>
+	</svg>
+)
+export const SelectArrow = ({fill, sx}) => (
+	<svg sx={sx} width="16" height="16" viewBox="0 0 7 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M3.07643 4.2662L0.378551 1.18291C0.0603114 0.819206 0.318599 0.25 0.801876 0.25H6.19764C6.68091 0.25 6.9392 0.819205 6.62096 1.18291L3.92308 4.2662C3.69897 4.52232 3.30054 4.52232 3.07643 4.2662Z" fill={fill}/>
 	</svg>
 )

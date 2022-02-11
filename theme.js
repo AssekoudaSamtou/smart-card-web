@@ -187,7 +187,7 @@ const theme = {
 		body: 'Inter',
 	},
 	colors: {
-		default: '#FFFFFF',
+		neutral: '#FFFFFF',
 		primary: '#4C6FFF',
 		secondary: '#E4ECF7',
 		tertiary: '#FF92AE',

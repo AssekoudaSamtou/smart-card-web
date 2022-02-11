@@ -17,7 +17,7 @@ const ButtonWithDropdown = ({ options, children }) => {
 			</div>
 			{
 				showDropdown ? (
-					<div sx={{variant: 'containers.dropdown', top: '40px', minWidth: '200px', left: '-50%'}}>
+					<div sx={{variant: 'containers.dropdown', top: '40px', minWidth: '200px', left: '-50%', zIndex: 1}}>
 						{
 							options && options.map((item, i) => (
 								<div

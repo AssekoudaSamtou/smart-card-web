@@ -5,8 +5,12 @@ import React from "react"
 import Image from "next/image"
 import RoundedIcon from "../src/components/RoundedIcon"
 import Button from "../src/components/Button"
-import {PersonLineFill, UserIcon, GlobeIcon} from "../icons"
+import {PersonLineFill, UserIcon, GlobeIcon, SelectArrow, PlusIcon} from "../icons"
 import Hero from "../src/images/Rounded Rectangle.png"
+import { InstagramIcon, TwitterIcon, LinkedInIcon } from "./profile";
+import lodash from 'lodash'
+import {v4 as uuidv4} from "uuid";
+import ButtonWithDropdown from "../src/components/ButtonWithDropdown";
 
 const stats = [
 	{title: 'Utilisateurs', value: '500.54', icon: UserIcon, trend: 13},
@@ -51,30 +55,51 @@ export default () => {
 				}
 			</div>
 			
-			
-			<div sx={{display: 'flex'}}>
-				<div sx={{variant: 'containers.card', padding: '8px', display: 'flex', flexDirection: 'column', alignItems: 'stretch', flexBasis: '343px'}}>
-					<div sx={{position: 'relative'}}>
-						<Image sx={{borderRadius: '16px'}} src={Hero}/>
-					</div>
-					
-					<div sx={{padding: '0 8px'}}>
-						<div sx={{display: 'flex', flexDirection: 'column', alignItems: 'stretch'}}>
-							<span sx={{variant: 'headings.h5'}}>Titre du poste</span>
-							<span sx={{fontSize: '14px', lineHeight: '23px', color: '#718096'}}>Monday Jan 20 , 2020</span>
-						</div>
-						
-						<p sx={{fontSize: '14px', lineHeight: '23px', color: '#425466'}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare pretium placerat ut platea... </p>
-						
-						<div sx={{display: 'flex'}}>
-							<Button color="warning">Read more</Button>
-						</div>
-					</div>
-					
-					
-				</div>
+			<div sx={{display: 'flex', p: '3rem 3rem 2rem', width: '96%', margin: 'auto'}}>
+				<ButtonWithDropdown options={[
+					{ id: uuidv4(), text: 'Jan 2022' },
+					{ id: uuidv4(), text: 'Dec 2021' },
+				]}>
+					<Button color="neutral" rounded={'full'} icon={{ position: 'right', component: SelectArrow, size: 12 }}>Ce mois</Button>
+				</ButtonWithDropdown>
+				<Button style={{alignSelf: 'center'}} color="primary" rounded={'full'} icon={{ position: 'center', component: PlusIcon, size: 12 }}/>
 			</div>
 			
+			<div sx={{display: 'flex', flexWrap: 'wrap', justifyContent: 'start'}}>
+				{
+					Array(8).fill(1).map((_, i) => (
+						<div sx={{variant: 'containers.card', padding: '8px', margin: '0 1rem 2rem 0', display: 'flex', flexDirection: 'column', alignItems: 'stretch', flexBasis: '300px'}}>
+							<div sx={{position: 'relative'}}>
+								<Image sx={{borderRadius: '16px'}} src={Hero}/>
+								
+								<Button
+									style={{
+										position: 'absolute',
+										left: 'calc(100% - 52px)',
+										top: '16px'
+									}}
+									size={'default'}
+									color="neutral"
+									rounded={'full'}
+									icon={{ position: 'center', component: lodash.sample([ TwitterIcon, InstagramIcon, LinkedInIcon ]) }}
+								/>
+							</div>
+							<div sx={{padding: '0 8px'}}>
+								<div sx={{display: 'flex', flexDirection: 'column', alignItems: 'stretch'}}>
+									<span sx={{variant: 'headings.h5'}}>Titre du poste</span>
+									<span sx={{fontSize: '14px', lineHeight: '23px', color: '#718096'}}>Monday Jan 20 , 2020</span>
+								</div>
+								
+								<p sx={{fontSize: '14px', lineHeight: '23px', color: '#425466'}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare pretium placerat ut platea... </p>
+								
+								<div sx={{display: 'flex'}}>
+									<Button size={'default'} color="secondary" rounded={'full'} icon={{ position: 'left', component: GlobeIcon }}>Read more</Button>
+								</div>
+							</div>
+						</div>
+					))
+				}
+			</div>
 		</div>
 	)
 }
