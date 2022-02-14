@@ -50,12 +50,12 @@ const Badge = ({text, background, color}) => (
 )
 
 const navItems = [
-	{id: uuidv4(), text: 'Tableau de bord', icon: ChatIcon, href: '/'},
-	{id: uuidv4(), text: 'Applications', icon: ChatIcon, badge: 10, href: '/table'},
-	{id: uuidv4(), text: 'Messages', icon: ChatIcon, badge: 6, href: '/'},
-	{id: uuidv4(), text: 'Utilisateurs', icon: ChatIcon, badge: 10, href: '/table'},
-	{id: uuidv4(), text: 'Account', icon: UserIcon, href: '/profile'},
-	{id: uuidv4(), text: 'Logout', icon: LogoutIcon, onClick: () => location.replace('/auth/login')},
+	// {id: uuidv4(), text: 'Tableau de bord', icon: ChatIcon, href: '/'},
+	// {id: uuidv4(), text: 'Utilisateurs', icon: ChatIcon, badge: 10, href: '/table'},
+	{id: uuidv4(), text: 'Publications', icon: ChatIcon, badge: 6, href: '/'},
+	{id: uuidv4(), text: 'Comptes', icon: ChatIcon, badge: 10, href: '/accounts'},
+	{id: uuidv4(), text: 'Mon Profil', icon: UserIcon, href: '/profile'},
+	{id: uuidv4(), text: 'Déconnexion', icon: LogoutIcon, onClick: () => location.replace('/auth/login')},
 ]
 
 const Sidebar = () => {
@@ -73,7 +73,7 @@ const Sidebar = () => {
 			
 			<div sx={{margin: '4rem 0 0 0', flexBasis: '73%'}}>
 				{
-					navItems.slice(0, 4).map((item, i) => (
+					navItems.slice(0, 2).map((item, i) => (
 						<NavItem
 							key={item.id}
 							text={item.text}
@@ -89,7 +89,7 @@ const Sidebar = () => {
 			
 			<div>
 				{
-					navItems.slice(4, 6).map((item, i) => (
+					navItems.slice(2, 6).map((item, i) => (
 						<NavItem
 							key={i}
 							text={item.text}

@@ -4,6 +4,8 @@ const theme = {
 	...roboto,
 	containers: {
 		card: {
+			display: 'flex',
+			flexDirection: 'column',
 			boxShadow: '0px 0px 1px rgba(12, 26, 75, 0.24), 0px 3px 8px -1px rgba(50, 50, 71, 0.05)',
 			borderRadius: '16px',
 			p: 24,
@@ -195,7 +197,14 @@ const theme = {
 		info: '#68DBF2',
 		danger: '#F16063',
 		warning: '#F7936F',
+		dark: '#16192C',
 	},
+	link: {
+		color: '#4C6FFF',
+		cursor: 'pointer',
+		fontSize: '12px',
+		fontWeight: '600',
+	}
 }
 
 export default theme

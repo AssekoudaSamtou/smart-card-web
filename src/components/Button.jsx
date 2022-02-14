@@ -3,7 +3,7 @@
 import { jsx } from 'theme-ui'
 import React from "react";
 
-const Button = ({ children, color, size, icon, rounded, style }) => {
+const Button = ({ children, color, size, icon, rounded, style, onClick, disabled, className }) => {
 	const textColor = color === 'secondary' ? '#505780' : color === 'neutral' ? '#16192C' : '#FFFFFF'
 	const iconComponent = icon ? React.createElement(icon.component, {
 		fill: textColor,
@@ -18,7 +18,7 @@ const Button = ({ children, color, size, icon, rounded, style }) => {
 	}) : null
 	
 	return (
-		<button sx={{
+		<button className={ className } sx={{
 			fontFamily: 'Inter',
 			bg: color || 'primary',
 			color: textColor,
@@ -34,14 +34,16 @@ const Button = ({ children, color, size, icon, rounded, style }) => {
 			fontWeight: 600,
 			fontSize: size === 'large' ? '14px' : size === 'small' ? '10px' : '12px',
 			lineHeight: '12px',
-			cursor: 'pointer',
+			cursor: disabled ? 'not-allowed' : 'pointer',
 			display: 'flex',
+			justifyContent: 'center',
+			minWidth: icon && icon.position === 'center' ? 'unset' : '100px',
 			alignItems: 'center',
 			'&:active': {
 				boxShadow: '0px 0px 0px 2px rgba(76, 111, 255, 0.3)'
 			},
 			...style
-		}}>
+		}} onClick={ onClick } disabled={disabled || false}>
 			{
 				icon ? icon.position === 'left' ? (
 					<>

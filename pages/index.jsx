@@ -22,7 +22,7 @@ const stats = [
 export default () => {
 	return (
 		<div>
-			<div sx={{display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap'}}>
+			{/*<div sx={{display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap'}}>
 				{
 					stats.map((item, i) => (
 						<div key={i} sx={{variant: 'containers.card', flexBasis: '23%', px: 24, mb: 24}}>
@@ -53,26 +53,26 @@ export default () => {
 						</div>
 					))
 				}
-			</div>
+			</div>*/}
 			
-			<div sx={{display: 'flex', p: '3rem 3rem 2rem', width: '96%', margin: 'auto'}}>
+			<div sx={{display: 'flex', p: '0rem 0 2rem', width: '96%', margin: 'auto'}}>
 				<ButtonWithDropdown options={[
 					{ id: uuidv4(), text: 'Jan 2022' },
 					{ id: uuidv4(), text: 'Dec 2021' },
 				]}>
 					<Button color="neutral" rounded={'full'} icon={{ position: 'right', component: SelectArrow, size: 12 }}>Ce mois</Button>
 				</ButtonWithDropdown>
-				<Button style={{alignSelf: 'center'}} color="primary" rounded={'full'} icon={{ position: 'center', component: PlusIcon, size: 12 }}/>
+				<Button style={{alignSelf: 'center', ml: '1rem'}} color="primary" rounded={'full'} icon={{ position: 'center', component: PlusIcon, size: 12 }}/>
 			</div>
 			
 			<div sx={{display: 'flex', flexWrap: 'wrap', justifyContent: 'start'}}>
 				{
 					Array(8).fill(1).map((_, i) => (
-						<div sx={{variant: 'containers.card', padding: '8px', margin: '0 1rem 2rem 0', display: 'flex', flexDirection: 'column', alignItems: 'stretch', flexBasis: '300px'}}>
+						<div key={ i } sx={{variant: 'containers.card', padding: '8px', margin: '0 1rem 2rem 0', display: 'flex', flexDirection: 'column', alignItems: 'stretch', flexBasis: '300px'}}>
 							<div sx={{position: 'relative'}}>
 								<Image sx={{borderRadius: '16px'}} src={Hero}/>
 								
-								<Button
+								{/*<Button
 									style={{
 										position: 'absolute',
 										left: 'calc(100% - 52px)',
@@ -82,7 +82,7 @@ export default () => {
 									color="neutral"
 									rounded={'full'}
 									icon={{ position: 'center', component: lodash.sample([ TwitterIcon, InstagramIcon, LinkedInIcon ]) }}
-								/>
+								/>*/}
 							</div>
 							<div sx={{padding: '0 8px'}}>
 								<div sx={{display: 'flex', flexDirection: 'column', alignItems: 'stretch'}}>
