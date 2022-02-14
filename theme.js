@@ -155,6 +155,26 @@ const theme = {
 				boxShadow: '0px 0px 0px 2px rgba(76, 111, 255, 0.3)'
 			}
 		},
+		search: {
+			background: '#FFFFFF',
+			outline: 'none',
+			margin: '.7rem 0',
+			fontFamily: 'Inter',
+			appearance: 'none',
+			backgroundClip: 'padding-box',
+			border: '0',
+			borderRadius: '.375rem',
+			color: '#16192c',
+			display: 'block',
+			fontSize: '1rem',
+			fontWeight: '400',
+			lineHeight: '1.3',
+			padding: '.5rem 1.25rem',
+			transition: 'border-color .15s ease-in-out,box-shadow .15s ease-in-out',
+			'&:focus': {
+			
+			}
+		},
 		select: {
 			display: 'flex',
 			justifyContent: 'space-between',

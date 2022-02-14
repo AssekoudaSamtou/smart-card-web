@@ -3,6 +3,7 @@
 import {jsx} from 'theme-ui'
 import React, { useState } from "react"
 import Image from "next/image"
+import { useRouter } from 'next/router'
 import Button from "../../src/components/Button"
 import {Pencil, PlusIcon, TrashFill} from "../../icons"
 import Avatar1 from "../../src/images/image 5.png"
@@ -24,6 +25,8 @@ const defaultSocialNetworks = [
 export default () => {
 	const [selectedAccount, setSelectedAccount] = useState(defaultSocialNetworks[0])
 	
+	const router = useRouter()
+	
 	return (
 		<div>
 			<div sx={{display: 'flex', justifyContent: 'center', margin: '0 0 2rem 0'}}>
@@ -41,9 +44,8 @@ export default () => {
 			<div sx={{display: 'flex', flexWrap: 'wrap', justifyContent: 'start'}}>
 				<div sx={{variant: 'containers.card', padding: '8px', margin: '0 2rem 2rem 0', display: 'flex', flexDirection: 'row', justifyContent: 'center', flexBasis: '200px', alignItems: 'center'}}>
 					<Button
-						style={{
-							border: '2px dashed #3d6892'
-						}}
+						style={{ border: '2px dashed #3d6892' }}
+						onClick={ () => router.push('/create') }
 						size={'default'}
 						color="neutral"
 						rounded={'full'}
