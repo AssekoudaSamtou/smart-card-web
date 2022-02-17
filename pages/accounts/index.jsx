@@ -14,6 +14,7 @@ import Avatar5 from "../../src/images/image 12.png"
 import { InstagramIcon, TwitterIcon, LinkedInIcon } from "../profile"
 import lodash from 'lodash'
 import {v4 as uuidv4} from "uuid"
+import Modal from "../../src/components/Modal";
 
 const defaultSocialNetworks = [
 	{id: uuidv4(), name: 'tout'},
@@ -24,6 +25,7 @@ const defaultSocialNetworks = [
 ]
 export default () => {
 	const [selectedAccount, setSelectedAccount] = useState(defaultSocialNetworks[0])
+	const [showDeleteConfirmModal, setShowDeleteConfirmModal] = useState(false)
 	
 	const router = useRouter()
 	
@@ -41,6 +43,7 @@ export default () => {
 				}
 				
 			</div>
+			
 			<div sx={{display: 'flex', flexWrap: 'wrap', justifyContent: 'start'}}>
 				<div sx={{variant: 'containers.card', padding: '8px', margin: '0 2rem 2rem 0', display: 'flex', flexDirection: 'row', justifyContent: 'center', flexBasis: '200px', alignItems: 'center'}}>
 					<Button
@@ -52,7 +55,6 @@ export default () => {
 						icon={{ position: 'center', component: PlusIcon }}
 					/>
 				</div>
-				
 				{
 					Array(8).fill(1).map((_, i) => (
 						<div key={i} sx={{
@@ -84,7 +86,7 @@ export default () => {
 									rounded={'full'}
 									icon={{ position: 'center', component: lodash.sample([ TwitterIcon, InstagramIcon, LinkedInIcon ]) }}
 								/>
-								<Button className="action-btn"
+								<Button className="action-btn" onClick={ () => setShowDeleteConfirmModal(true) }
 									style={{
 										position: 'absolute',
 										left: '8px',
@@ -95,6 +97,7 @@ export default () => {
 								/>
 								<Button
 									className="action-btn"
+									onClick={ () => router.push(`/accounts/${ i }`) }
 									style={{
 										position: 'absolute',
 										left: '50px',
@@ -113,6 +116,21 @@ export default () => {
 					))
 				}
 			</div>
+			
+			{
+				showDeleteConfirmModal ? (
+					<Modal handleClose={ undefined }>
+						<div sx={{width: '500px'}}>
+							<span sx={{variant: 'headings.h5'}}>Voulez-vous réelement supprimer ce compte ?</span>
+							
+							<div sx={{display: 'flex', justifyContent: 'end', alignItems: 'flex-end', height: '150px'}}>
+								<Button className="action-btn" style={{ margin: '0 1rem 0 0'}} color="danger">Supprimer</Button>
+								<Button className="action-btn" color="secondary" rounded={'default'} onClick={ () => setShowDeleteConfirmModal(false) }>Annuler</Button>
+							</div>
+						</div>
+					</Modal>
+				) : ''
+			}
 		</div>
 	)
 }

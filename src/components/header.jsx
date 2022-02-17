@@ -23,8 +23,8 @@ const Header = ({tabs}) => {
 			borderBottom: '1px solid #EDF2F7',
 			zIndex: '1'
 		}}>
-			<div sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
-				<span sx={{fontWeight: 'bold', fontSize: '28px', color: '#27272E'}}>Tableau de bord</span>
+			<div sx={{display: 'flex', alignItems: 'center', justifyContent: 'end'}}>
+				{/*<span sx={{fontWeight: 'bold', fontSize: '28px', color: '#27272E'}}>Tableau de bord</span>*/}
 				<nav sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '100%'}}>
 					<Button onClick={ () => router.push('/create') } size={'default'} color="primary" icon={{position: 'left', component: PlusIcon, size: 12}}>Céer</Button>
 				</nav>

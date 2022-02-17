@@ -135,7 +135,131 @@ const theme = {
 			display: 'flex',
 			alignItems: 'center',
 			color: '#27272E',
-		}
+		},
+		h6: {
+			fontWeight: '600',
+			fontSize: '16px',
+			lineHeight: '25px',
+			display: 'flex',
+			alignItems: 'center',
+			color: '#27272E',
+		},
+	},
+	text: {
+		display: {
+			1: {
+				fontFamily: 'Inter',
+				fontStyle: 'normal',
+				fontWeight: 'bold',
+				fontSize: '80px',
+				lineHeight: '100px',
+				color: '#425466',
+			},
+			2: {
+				variant: 'text.display.1',
+				fontSize: '72px',
+				lineHeight: '92px',
+			},
+			3: {
+				variant: 'text.display.1',
+				fontSize: '64px',
+				lineHeight: '77px',
+			},
+			4: {
+				variant: 'text.display.1',
+				fontSize: '56px',
+				lineHeight: '68px',
+			},
+			5: {
+				variant: 'text.display.1',
+				fontSize: '48px',
+				lineHeight: '58px',
+			},
+			6: {
+				variant: 'text.display.1',
+				fontSize: '40px',
+				lineHeight: '48px',
+			},
+		},
+		heading: {
+			h1: {
+				fontWeight: 'bold',
+				fontStyle: 'normal',
+				display: 'flex',
+				alignItems: 'center',
+				color: '#245466',
+				fontSize: '36px',
+				lineHeight: '136.02%',
+			},
+			h2: {
+				variant: 'text.heading.h1',
+				fontSize: '28px',
+			},
+			h3: {
+				variant: 'text.heading.h1',
+				fontSize: '20px',
+			},
+			h4: {
+				variant: 'text.heading.h1',
+				fontSize: '18px',
+				lineHeight: '22px',
+			},
+			h5: {
+				variant: 'text.heading.h1',
+				fontSize: '16px',
+				lineHeight: '25px',
+			},
+			h6: {
+				fontSize: '14px',
+				lineHeight: '24px',
+			},
+			custom: {
+				fontSize: '11px',
+				lineHeight: '13px',
+				letterSpacing: '.03rem',
+				textTransform: 'uppercase',
+			},
+		},
+		paragraph: {
+			lead: {
+				fontWeight: '400',
+				fontStyle: 'normal',
+				display: 'flex',
+				alignItems: 'center',
+				color: '#245466',
+				fontSize: '18px',
+				lineHeight: '30px',
+			},
+		},
+		base: {
+			fontWeight: 'normal',
+			fontStyle: 'normal',
+			display: 'flex',
+			alignItems: 'center',
+			color: '#245466',
+			fontSize: '16px',
+			lineHeight: '162.02%',
+		},
+		xm: {
+			variant: 'text.base',
+			fontSize: '12px',
+			lineHeight: '20px',
+		},
+		sm: {
+			variant: 'text.base',
+			fontSize: '14px',
+			lineHeight: '23px',
+		},
+		lg: {
+			variant: 'text.base',
+			fontSize: '20px',
+			lineHeight: '136%',
+		},
+		xl: {
+			variant: 'text.base',
+			fontSize: '28px',
+			lineHeight: '136%',
+		},
 	},
 	controls: {
 		input: {

@@ -3,10 +3,9 @@
 import {jsx} from 'theme-ui'
 import React, { useState } from "react"
 import Image from "next/image"
-import {v4 as uuidv4} from "uuid"
-import {PlusIcon} from "../icons";
-import Button from "../src/components/Button";
-import {InstagramIcon, LinkedInIcon, TwitterIcon} from "./profile";
+import {PlusIcon, Instagram, Facebook, Twitter, LinkedIn, Check} from "../icons"
+import Button from "../src/components/Button"
+import {InstagramIcon, LinkedInIcon, TwitterIcon} from "./profile"
 import Avatar1 from "../src/images/image 5.png"
 import Avatar3 from "../src/images/image 7.png"
 import Avatar4 from "../src/images/image 10.png"
@@ -16,16 +15,14 @@ import theme from "../theme"
 
 
 const tmp = [
-	{id: uuidv4(), name: 'ABALONE Jackson', Icon: React.createElement(TwitterIcon), avatar: Avatar5},
-	{id: uuidv4(), name: 'Kevin Hart', Icon: React.createElement(LinkedInIcon), avatar: Avatar4},
-	{id: uuidv4(), name: 'Nelson Eddy', Icon: React.createElement(TwitterIcon), avatar: Avatar3},
-	{id: uuidv4(), name: 'Bravo Celestin', Icon: React.createElement(InstagramIcon), avatar: Avatar1},
+	{id: 1, name: 'ABALONE Jackson', Icon: Instagram, avatar: Avatar5},
+	{id: 2, name: 'Kevin Hart', Icon: Facebook, avatar: Avatar4},
+	{id: 3, name: 'Nelson Eddy', Icon: Twitter, avatar: Avatar3},
+	{id: 4, name: 'Bravo Celestin', Icon: LinkedIn, avatar: Avatar1},
 ]
 export default () => {
 	const [accounts, setAccounts] = useState(tmp)
 	const [filterText, setFilterText] = useState('')
-	
-	console.log(accounts)
 	
 	return (
 		<div sx={{ display: 'flex' }}>
@@ -45,7 +42,9 @@ export default () => {
 				<SearchInput name={'search'} value={ filterText } setValue={ value => setFilterText(value) } placeholder="Rechercher un compte..." />
 				
 				{
-					accounts.map((item, i) => (
+					accounts
+						.filter(item => item.name.toLowerCase().includes(filterText.toLowerCase()))
+						.map((item, i) => (
 						<div key={ i } className='item' sx={{
 							display: 'flex',
 							justifyContent: 'space-between',
@@ -56,12 +55,13 @@ export default () => {
 							cursor: 'pointer',
 							'&:hover': {
 								opacity: 1,
-								color: 'primary',
+								color: !item.selected ? 'success' : 'primary',
 							},
 						}} onClick={ () => setAccounts((prevState) => {
-							const index = prevState.findIndex(i => i.id === item.id)
-							prevState[index] = {...prevState[index], selected: !Boolean(prevState[index].selected)}
-							return [...prevState]
+							const data = Array.from(prevState)
+							const index = data.findIndex(i => i.id === item.id)
+							data[index] = {...data[index], selected: !Boolean(data[index].selected)}
+							return data
 						})}>
 							<div sx={{display: 'flex', alignItems: 'center'}}>
 								<div sx={{width: '40px', height: '40px', position: 'relative'}}>
@@ -70,15 +70,21 @@ export default () => {
 										src={ item.avatar }
 									/>
 									<span sx={{
-										position: 'absolute', width: '15.4px', height: '15.4px', left: 'calc(50% - 19px)',
-										top: 'calc(100% - 13px)', backgroundColor: `#30E398`, borderRadius: '100%', border: '3px solid #FFFFFF',
-									}}/>
+										position: 'absolute', width: '21px', height: '21px', left: 'calc(50% - 19px)', display: 'flex', alignItems: 'center', justifyContent: 'center',
+										top: 'calc(100% - 13px)', backgroundColor: `#16192C`, borderRadius: '100%',
+									}}>
+										{ React.createElement(item.Icon, { fill: 'white', sx: {width: 14, height: 14} }) }
+									</span>
 									
 									{ item.selected ? (
 										<span sx={{
-											position: 'absolute', width: '15.4px', height: '15.4px', left: 'calc(50% - 19px)',
-											top: 'calc(13px)', backgroundColor: `#F16063`, borderRadius: '100%', border: '3px solid #FFFFFF',
-										}}/>
+											position: 'absolute', width: '15px', height: '15px', left: 'calc(100% - 9px)',
+											top: 'calc(3px)', backgroundColor: `#DEFFEE`, borderRadius: '100%',display: 'flex',
+											justifyContent: 'center',
+											alignItems: 'center'
+										}}>
+											{ React.createElement(Check, { fill: '#66CB9F', sx: {width: 9, height: 6} }) }
+										</span>
 									) : '' }
 									
 								</div>
@@ -99,7 +105,7 @@ export default () => {
 						resize: 'none', outline: 'none',
 					}} placeholder="Ecrivez du text..." />
 					
-					<input type="file" sx={{display: 'none'}}/>
+					<input accept="image/*, video/*, video/mp4" type="file" sx={{display: 'none'}}/>
 					<Button onClick={ event => event.target.previousElementSibling.click() } color={'secondary'} style={{display: 'block', width: '100%'}}>Click, Drag & Drop files here</Button>
 				</div>
 				

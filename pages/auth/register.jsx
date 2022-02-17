@@ -31,6 +31,8 @@ export default ({ showNotification }) => {
 			setIsSubmitting(false)
 			setIsSubmitting2(false)
 			showNotification('success', 'Bravo, votre numéro de téléphone est vérifié')
+			
+			setTimeout(() => window.location.replace('/'), 500)
 		}, 500)
 	}
 	

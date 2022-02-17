@@ -22,7 +22,10 @@ export default () => (
 					}}>Let's build something great</span>*/}
 				</div>
 				
-				<form sx={{margin: '54px 0 0 0'}}>
+				<form sx={{margin: '54px 0 0 0'}} onSubmit={ event => {
+					event.preventDefault()
+					setTimeout(() => window.location.replace('/'), 500)
+				}}>
 					<TextInput name="phone" value="8454121" setValue={undefined} label="Numéro de téléphone ou Email" type="text"/>
 					<TextInput name="Password" value="8454121" setValue={undefined} label="Mot de passe" type="Password"/>
 					

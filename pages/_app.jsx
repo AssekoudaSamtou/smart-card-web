@@ -16,7 +16,7 @@ import { AppStateProvider } from "../context/app-data"
 import "../src/style.css"
 
 export default function App({ Component, pageProps }) {
-	const [activeTab, setActiveTab] = useState(accountTabs[1])
+	const [activeTab, setActiveTab] = useState(accountTabs[0])
 	const [notifications, setNotifications] = useState([])
 	
 	const tabsItemClickHandler = (tab) => {

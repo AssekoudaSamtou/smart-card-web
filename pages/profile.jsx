@@ -4,14 +4,15 @@ import { jsx } from 'theme-ui'
 import Image from 'next/image'
 import React, {useState} from 'react'
 import Hero from '../src/images/Image.png'
+import Avatar from '../src/images/image 12.png'
 import { v4 as uuidv4 } from 'uuid'
 import TextInput from "../src/components/textInput"
 import SelectInput from "../src/components/selectInput"
 import Button from "../src/components/Button"
-import Modal from "../src/components/Modal";
+import Modal from "../src/components/Modal"
 import Loading from "../src/components/Loading"
-import Loader from "../src/images/Ellipse 1.png";
-import {PlusIcon} from "../icons";
+import Loader from "../src/images/Ellipse 1.png"
+import {Pencil, PlusIcon, TrashFill} from "../icons"
 
 
 export const LinkedInIcon = ({ className, sx }) => (
@@ -55,10 +56,47 @@ const GeneralsTab = () => {
 				variant: 'containers.card',
 				height: '7rem',
 				display: 'flex',
-				justifyContent: 'space-between'
+				justifyContent: 'space-between',
+				flexDirection: 'row',
 			}}>
 				<div>
-				
+					<div sx={{
+						width: '60px',
+						height: '60px',
+						position: 'relative',
+						'& .action-btn': {
+							visibility: 'hidden',
+							position: 'absolute',
+							top: 'calc(100% - 40px)',
+							width: '20px',
+							height: '20px',
+							padding: '5px',
+						},
+						'&:hover .action-btn': {
+							visibility: 'visible',
+						},
+						'&:hover img': {
+							opacity: .7,
+						},
+					}}>
+						<Image
+							sx={{ borderRadius: '100%', border: '3px solid #FFFFFF' }}
+							src={ Avatar }
+						/>
+						<Button
+							className="action-btn" onClick={ undefined }
+			        style={{left: '35px'}}
+			        size={'default'} color="danger" rounded={'full'}
+			        icon={{ position: 'center', component: TrashFill }}
+						/>
+						<Button
+							className="action-btn"
+							onClick={ () => undefined }
+							style={{left: '5px'}}
+							size={'default'} color="secondary" rounded={'full'}
+							icon={{ position: 'center', component: Pencil }}
+						/>
+					</div>
 				</div>
 				<div sx={{display: 'flex', alignItems: 'center'}}>
 					<button sx={{variant: 'buttons.light'}}>upload</button>
@@ -329,7 +367,7 @@ const SettingsTab = () => {
 
 export const TABS = [
 	{id: uuidv4(), text: 'Generals', component: GeneralsTab},
-	{id: uuidv4(), text: 'Social Networks', component: SocialNetWorkTab},
+	// {id: uuidv4(), text: 'Social Networks', component: SocialNetWorkTab},
 	{id: uuidv4(), text: 'Settings', component: SettingsTab},
 ]
 
