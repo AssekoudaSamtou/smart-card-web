@@ -45,7 +45,7 @@ export default () => {
 			</div>
 			
 			<div sx={{display: 'flex', flexWrap: 'wrap', justifyContent: 'start'}}>
-				<div sx={{variant: 'containers.card', padding: '8px', margin: '0 2rem 2rem 0', display: 'flex', flexDirection: 'row', justifyContent: 'center', flexBasis: '200px', alignItems: 'center'}}>
+				<div sx={{variant: 'containers.card', padding: '8px', margin: '0 2rem 2rem 0', flexDirection: 'row', justifyContent: 'center', flexBasis: '200px', alignItems: 'center'}}>
 					<Button
 						style={{ border: '2px dashed #3d6892' }}
 						onClick={ () => router.push('/create') }

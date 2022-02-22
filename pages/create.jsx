@@ -3,15 +3,16 @@
 import {jsx} from 'theme-ui'
 import React, { useState } from "react"
 import Image from "next/image"
-import {PlusIcon, Instagram, Facebook, Twitter, LinkedIn, Check} from "../icons"
+import {PlusIcon, Instagram, Facebook, Twitter, LinkedIn, Check, TrashFill, Pencil, XCircleIcon} from "../icons"
 import Button from "../src/components/Button"
-import {InstagramIcon, LinkedInIcon, TwitterIcon} from "./profile"
 import Avatar1 from "../src/images/image 5.png"
 import Avatar3 from "../src/images/image 7.png"
 import Avatar4 from "../src/images/image 10.png"
 import Avatar5 from "../src/images/image 12.png"
 import SearchInput from "../src/components/searchInput"
 import theme from "../theme"
+import lodash from "lodash"
+import Avatar2 from "../src/images/image 6.png"
 
 
 const tmp = [
@@ -23,6 +24,29 @@ const tmp = [
 export default () => {
 	const [accounts, setAccounts] = useState(tmp)
 	const [filterText, setFilterText] = useState('')
+	const [files, setFiles] = useState([])
+	
+	const addFile = async (file) => {
+		setFiles(prevState => {
+			const files = Array.from(prevState)
+			files.push(file)
+			return files
+		})
+		await loadDataURL(file)
+	}
+	
+	const loadDataURL = async (file) => {
+		const reader = new FileReader()
+		reader.addEventListener("load", () => setFiles(prevState => {
+			const files = Array.from(prevState)
+			const index = files.findIndex(item => item === item)
+			files[index].dataURL = reader.result
+			return files
+		}), false)
+		
+		if (file)
+			await reader.readAsDataURL(file)
+	}
 	
 	return (
 		<div sx={{ display: 'flex' }}>
@@ -105,8 +129,63 @@ export default () => {
 						resize: 'none', outline: 'none',
 					}} placeholder="Ecrivez du text..." />
 					
-					<input accept="image/*, video/*, video/mp4" type="file" sx={{display: 'none'}}/>
-					<Button onClick={ event => event.target.previousElementSibling.click() } color={'secondary'} style={{display: 'block', width: '100%'}}>Click, Drag & Drop files here</Button>
+					
+					<div sx={{ padding: '8px', margin: '0', display: 'flex', flexDirection: 'row', justifyContent: 'start', alignItems: 'center', flexWrap: 'wrap' }}>
+						{
+							files.map((item, i) => (
+								<div key={i} sx={{
+									padding: '8px',
+									backgroundImage: `url(${ item.dataURL })`,
+									height: '150px',
+									backgroundSize: 'cover',
+									backgroundRepeat: 'no-repeat',
+									margin: '0 1rem 1rem 0',
+									display: 'flex',
+									flexDirection: 'column',
+									alignItems: 'stretch',
+									flexBasis: '150px',
+									'&:hover .action-btn': {
+										visibility: 'visible'
+									},
+									'& .action-btn': {
+										visibility: 'hidden'
+									},
+								}}>
+									<div sx={{position: 'relative', width: '100%', height: '100%'}}>
+										{/*<img sx={{borderRadius: '7px'}} height={150} width={150} src={  }/>*/}
+										<Button
+											className="action-btn"
+											onClick={ undefined }
+							        style={{
+								        position: 'absolute',
+								        left: '8px',
+								        top: 'calc(100% - 35px)',
+								        padding: '3px',
+							        }}
+							        size={'default'} color="danger" rounded={'full'}
+							        icon={{ position: 'center', component: XCircleIcon }}
+										/>
+										<Button
+											className="action-btn"
+											onClick={ () => undefined }
+											style={{
+												position: 'absolute',
+												left: '50px',
+												top: 'calc(100% - 35px)',
+												padding: '3px',
+												minWidth: '80px',
+											}}
+											size={'small'} color="secondary" rounded={'full'}
+											icon={{ position: 'left', component: Pencil }}
+										>Changer</Button>
+									</div>
+								</div>
+							))
+						}
+					</div>
+					
+					<input accept="image/*, video/*, video/mp4" type="file" sx={{display: 'none'}} onChange={ event => addFile(event.target.files[0]) }/>
+					<Button onClick={ event => event.target.previousElementSibling.click() } color={'secondary'} style={{display: 'block', width: '100%'}}>Cliquez, glissez et déposez les fichiers ici</Button>
 				</div>
 				
 				<div sx={{display: 'flex', justifyContent: 'end', margin: '2rem 0 0 0'}}>
