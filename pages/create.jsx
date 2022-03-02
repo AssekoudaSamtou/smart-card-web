@@ -35,11 +35,22 @@ export default () => {
 		await loadDataURL(file)
 	}
 	
+	const deleteFile = async (file) => {
+		setFiles(prevState => {
+			let files = Array.from(prevState)
+			const index = files.findIndex(item => item === file)
+			if (index !== -1) {
+				files = [...files.slice(0, index), ...files.slice(index + 1, files.length)]
+			}
+			return files
+		})
+	}
+	
 	const loadDataURL = async (file) => {
 		const reader = new FileReader()
 		reader.addEventListener("load", () => setFiles(prevState => {
 			const files = Array.from(prevState)
-			const index = files.findIndex(item => item === item)
+			const index = files.findIndex(item => item === file)
 			files[index].dataURL = reader.result
 			return files
 		}), false)
@@ -152,10 +163,9 @@ export default () => {
 									},
 								}}>
 									<div sx={{position: 'relative', width: '100%', height: '100%'}}>
-										{/*<img sx={{borderRadius: '7px'}} height={150} width={150} src={  }/>*/}
 										<Button
 											className="action-btn"
-											onClick={ undefined }
+											onClick={ () => deleteFile(item) }
 							        style={{
 								        position: 'absolute',
 								        left: '8px',
@@ -184,7 +194,7 @@ export default () => {
 						}
 					</div>
 					
-					<input accept="image/*, video/*, video/mp4" type="file" sx={{display: 'none'}} onChange={ event => addFile(event.target.files[0]) }/>
+					<input accept="image/*, video/*, video/mp4" type="file" sx={{display: 'none'}} onChange={ event => event.target.files.length && addFile(event.target.files[0]) }/>
 					<Button onClick={ event => event.target.previousElementSibling.click() } color={'secondary'} style={{display: 'block', width: '100%'}}>Cliquez, glissez et déposez les fichiers ici</Button>
 				</div>
 				
